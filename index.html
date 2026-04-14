@@ -542,22 +542,32 @@
     </div>
 
         
-        <div class="tiktok-grid">
+       <div class="tiktok-grid-quad">
     
-    <div class="tiktok-pair">
+    <div class="tiktok-row">
         <div class="media-box video-box">
             <div class="ratio-9-16">
-                <video controls poster="path/to/poster1.jpg">
-                    <source src="video1.mp4" type="video/mp4">
-                </video>
-                <div class="media-label">Creative #1</div>
+                <video preload="none" poster="poster1.jpg"><source src="v1.mp4"></video>
+                <div class="media-label">Video 1</div>
             </div>
         </div>
-        
         <div class="media-box stats-box">
             <div class="ratio-9-16">
-                <img src="stats1.jpg" alt="Охваты видео 1" class="case-img-ratio">
-                <div class="media-label stats-label">Analytics</div>
+                <img src="s1.jpg" alt="Stats 1">
+                <div class="media-label stats-label">Result 1</div>
+            </div>
+        </div>
+
+        <div class="media-box video-box">
+            <div class="ratio-9-16">
+                <video preload="none" poster="poster2.jpg"><source src="v2.mp4"></video>
+                <div class="media-label">Video 2</div>
+            </div>
+        </div>
+        <div class="media-box stats-box">
+            <div class="ratio-9-16">
+                <img src="s2.jpg" alt="Stats 2">
+                <div class="media-label stats-label">Result 2</div>
             </div>
         </div>
     </div>
@@ -734,32 +744,40 @@
 </section>
 
 <style>
-/* Основная сетка для TikTok кейса */
-.tiktok-grid {
+/* Контейнер для четырехколоночной сетки */
+.tiktok-grid-quad {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* Большой отступ между парами для чистоты */
-    margin-top: 40px;
-    padding-bottom: 100px;
+    gap: 40px;
+    margin-top: 30px;
+    max-width: 1200px; /* Ограничиваем ширину, чтобы блоки не были слишком огромными */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Стилизация одной пары (Видео + Результат) */
-.tiktok-pair {
+/* Строка из 4-х элементов */
+.tiktok-row {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки */
-    gap: 20px;
-    background: #fcfbf9; /* Легкий контрастный фон для пары */
-    padding: 20px;
-    border: 1px solid #eee;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
+    gap: 15px;
+    background: #fff;
+    padding: 15px;
+    border-bottom: 1px solid #eee; /* Разделитель между рядами */
 }
 
-/* Контейнер 9:16 */
+/* Пропорции 9:16 (сохраняем) */
 .ratio-9-16 {
     position: relative;
     padding-top: 177.77%; 
-    background: #f0f0f0;
+    background: #f8f8f8;
     overflow: hidden;
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.ratio-9-16:hover {
+    transform: translateY(-5px); /* Легкий эффект при наведении */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .ratio-9-16 video, 
@@ -772,32 +790,37 @@
     object-fit: cover;
 }
 
-/* Подписи поверх контента */
+/* Метки */
 .media-label {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(26, 26, 26, 0.8);
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    padding: 4px 10px;
-    font-size: 10px;
+    padding: 3px 8px;
+    font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: sans-serif;
 }
 
 .stats-label {
-    background: var(--accent-red); /* Аналитика выделена твоим фирменным цветом */
+    background: var(--accent-red);
 }
 
-/* Адаптация под мобильные устройства */
-@media (max-width: 768px) {
-    .tiktok-pair {
-        grid-template-columns: 1fr; /* На мобилках видео над скрином */
-        gap: 10px;
+/* --- АДАПТИВНОСТЬ (Критически важно!) --- */
+
+/* На планшетах делаем 2 ряда по 2 элемента */
+@media (max-width: 1024px) {
+    .tiktok-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
-    .case-main-title {
-        font-size: 1.8rem;
+}
+
+/* На телефонах — 1 колонка (всё в столбик) */
+@media (max-width: 600px) {
+    .tiktok-row {
+        grid-template-columns: 1fr;
     }
 }
 
