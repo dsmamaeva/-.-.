@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Media Portfolio</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -35,47 +35,46 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            background: linear-gradient(rgba(253,250,245,0.8), rgba(253,250,245,0.8)), 
-                        url('https://images.unsplash.com/photo-1550739438-6b05305e32e5?auto=format&fit=crop&q=80') center/cover; /* Заглушка фона */
+            background: linear-gradient(rgba(253,250,245,0.85), rgba(253,250,245,0.85));
+            text-align: center;
         }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-size: clamp(2.5rem, 12vw, 7rem);
             color: var(--accent-red);
             text-transform: uppercase;
-            line-height: 0.9;
-            text-align: center;
+            line-height: 0.85;
             z-index: 2;
+            margin-bottom: 20px;
         }
 
         .hero-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.5rem;
-            margin-top: 20px;
-            letter-spacing: 2px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
         }
 
-        /* --- Бегущая строка (Динамика) --- */
+        /* --- Бегущая строка --- */
         .marquee {
             background: var(--accent-red);
             color: white;
-            padding: 15px 0;
+            padding: 18px 0;
             white-space: nowrap;
             overflow: hidden;
             display: flex;
-            border-top: 2px solid var(--text-dark);
-            border-bottom: 2px solid var(--text-dark);
+            border-top: 1px solid var(--text-dark);
+            border-bottom: 1px solid var(--text-dark);
         }
 
         .marquee-content {
             display: inline-block;
-            animation: marquee 20s linear infinite;
+            animation: marquee 25s linear infinite;
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            font-weight: bold;
+            letter-spacing: 2px;
         }
 
         @keyframes marquee {
@@ -85,96 +84,99 @@
 
         /* --- Навигация --- */
         nav {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             position: sticky;
             top: 0;
-            background: var(--bg-cream);
+            background: rgba(253, 250, 245, 0.95);
             z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
 
         nav a {
-            margin: 0 15px;
+            margin: 0 20px;
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             transition: 0.3s;
+            letter-spacing: 1px;
         }
 
         nav a:hover { color: var(--accent-red); }
 
         /* --- Секции --- */
         section {
-            padding: 100px 5%;
-            max-width: 1200px;
+            padding: 120px 8%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 50px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 60px;
             text-align: center;
             color: var(--accent-red);
+            text-transform: uppercase;
         }
 
-        /* --- Полароидный стиль (Референс 1, 2, 5) --- */
+        /* --- Полароидный стиль --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
 
         .polaroid {
             background: white;
-            padding: 15px 15px 60px 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
             transition: var(--transition);
             text-decoration: none;
             color: inherit;
             display: block;
         }
 
-        .polaroid:nth-child(even) { transform: rotate(-2deg); }
-        .polaroid:nth-child(odd) { transform: rotate(2deg); }
+        .polaroid:nth-child(even) { transform: rotate(-1.5deg); }
+        .polaroid:nth-child(odd) { transform: rotate(1.5deg); }
 
         .polaroid:hover {
-            transform: rotate(0deg) translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 26, 26, 0.2);
+            transform: rotate(0deg) translateY(-15px);
+            box-shadow: 0 25px 50px rgba(139, 26, 26, 0.15);
         }
 
         .polaroid-img {
             width: 100%;
-            height: 350px;
-            background-color: var(--accent-red);
+            height: 380px;
+            background-color: #f0f0f0;
             object-fit: cover;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--accent-red);
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             text-align: center;
-            padding: 20px;
+            border: 1px solid #eee;
         }
 
         .polaroid-caption {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             text-align: center;
+            color: var(--text-dark);
         }
 
-        /* --- Опыт работы (Референс 3) --- */
+        /* --- Опыт работы --- */
         .experience-box {
-            border: 1px solid var(--accent-red);
-            padding: 40px;
-            margin-bottom: 30px;
-            position: relative;
+            border-left: 3px solid var(--accent-red);
+            padding: 30px 40px;
+            margin-bottom: 20px;
             background: white;
             transition: var(--transition);
         }
@@ -182,46 +184,49 @@
         .experience-box:hover {
             background: var(--accent-red);
             color: white;
+            transform: translateX(10px);
         }
 
         .exp-year {
             font-weight: bold;
             color: var(--accent-red);
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
         }
-        .experience-box:hover .exp-year { color: white; }
+        .experience-box:hover .exp-year { color: #fdfaf5; }
 
         /* --- Кнопки --- */
         .btn-main {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 18px 45px;
             background: var(--accent-red);
             color: white;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            margin-top: 30px;
-            transition: 0.3s;
+            font-size: 0.9rem;
+            transition: 0.4s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-main:hover {
-            letter-spacing: 2px;
             background: var(--text-dark);
+            letter-spacing: 2px;
         }
 
         footer {
             background: var(--text-dark);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
-        /* Анимация при скролле */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: all 1s ease;
         }
         .reveal.active {
             opacity: 1;
@@ -233,84 +238,87 @@
 <body>
 
     <header>
-        <div class="hero-title">Daria<br>Mamaeva</div>
-        <p class="hero-subtitle">Media Manager & Journalist</p>
-        <a href="#portfolio" class="btn-main">Explore Works</a>
+        <div class="hero-title">Дарья<br>Мамаева</div>
+        <p class="hero-subtitle">Медиаменеджер & Журналист</p>
+        <a href="#portfolio" class="btn-main" style="margin-top: 40px;">Смотреть работы</a>
     </header>
 
     <div class="marquee">
         <div class="marquee-content">
-            &nbsp;• SMM STRATEGY • CONTENT CREATION • JOURNALISM • EDITING • MEDIA ANALYTICS • SMM STRATEGY • CONTENT CREATION • JOURNALISM • EDITING • MEDIA ANALYTICS
+            &nbsp;• SMM-СТРАТЕГИЯ • СОЗДАНИЕ КОНТЕНТА • ЖУРНАЛИСТИКА • РЕДАКТУРА • МЕДИААНАЛИТИКА • КОПИРАЙТИНГ • SMM-СТРАТЕГИЯ • СОЗДАНИЕ КОНТЕНТА • ЖУРНАЛИСТИКА • РЕДАКТУРА • МЕДИААНАЛИТИКА • КОПИРАЙТИНГ
         </div>
         <div class="marquee-content">
-            &nbsp;• SMM STRATEGY • CONTENT CREATION • JOURNALISM • EDITING • MEDIA ANALYTICS • SMM STRATEGY • CONTENT CREATION • JOURNALISM • EDITING • MEDIA ANALYTICS
+            &nbsp;• SMM-СТРАТЕГИЯ • СОЗДАНИЕ КОНТЕНТА • ЖУРНАЛИСТИКА • РЕДАКТУРА • МЕДИААНАЛИТИКА • КОПИРАЙТИНГ • SMM-СТРАТЕГИЯ • СОЗДАНИЕ КОНТЕНТА • ЖУРНАЛИСТИКА • РЕДАКТУРА • МЕДИААНАЛИТИКА • КОПИРАЙТИНГ
         </div>
     </div>
 
     <nav>
-        <a href="#resume">About / CV</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        <a href="#resume">Об опыте</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contact">Контакты</a>
     </nav>
 
     <section id="resume" class="reveal">
-        <h2>Experience</h2>
+        <h2>Опыт работы</h2>
         <div class="experience-box">
-            <span class="exp-year">2024 — Present</span>
+            <span class="exp-year">2024 — Настоящее время</span>
             <h3>Интернет-магазин Meet Market</h3>
-            <p>Креативный менеджер: разработка стратегии, написание текстов, создание фото/видео контента.</p>
+            <p>Креативный менеджер: адаптация стратегий, создание фото и видеоконтента, копирайтинг.</p>
         </div>
         <div class="experience-box">
             <span class="exp-year">2024</span>
             <h3>Комсомольская правда</h3>
-            <p>Администратор tg-канала: мониторинг новостей, генерация идей для рубрик, поиск героев.</p>
+            <p>Администратор Telegram-канала: мониторинг повестки, генерация рубрик, работа с аудиторией.</p>
         </div>
-        <div style="text-align: center;">
-            <a href="https://drive.google.com/file/d/1mBSMP8ZKCt3BIeTKv2RhxmzAuBVMblDY/view?usp=sharing" target="_blank" class="btn-main">Download Full CV (PDF)</a>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://drive.google.com/file/d/1mBSMP8ZKCt3BIeTKv2RhxmzAuBVMblDY/view?usp=sharing" target="_blank" class="btn-main">Скачать полное резюме (PDF)</a>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2 class="reveal">Selected Works</h2>
+        <h2 class="reveal">Портфолио</h2>
         <div class="portfolio-grid">
             <a href="https://docs.google.com/document/d/1HIuhCmvUrDAygnDWkWez7xAP-WGTYBt5WcLWy-Dm4DI/edit?usp=sharing" class="polaroid reveal" target="_blank">
-                <div class="polaroid-img">TEXTUAL<br>WORKS</div>
-                <div class="polaroid-caption">Статьи, новости и копирайтинг</div>
+                <div class="polaroid-img">ТЕКСТОВЫЕ<br>РАБОТЫ</div>
+                <div class="polaroid-caption">Статьи, новости и спецпроекты</div>
             </a>
 
             <a href="https://drive.google.com/drive/folders/1e56x9_7R0Upx1pAwo7p1O19YvajdtyVG?usp=sharing" class="polaroid reveal" target="_blank">
-                <div class="polaroid-img" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80'); background-size: cover;">REELS & VIDEO</div>
-                <div class="polaroid-caption">Видеопродакшн и Reels</div>
+                <div class="polaroid-img">REELS &<br>ВИДЕО</div>
+                <div class="polaroid-caption">Креативный видеоконтент</div>
             </a>
 
             <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" class="polaroid reveal" target="_blank">
-                <div class="polaroid-img">EDITORIAL<br>PROJECTS</div>
-                <div class="polaroid-caption">Редакторские кейсы</div>
+                <div class="polaroid-img">РЕДАКТОРСКИЕ<br>КЕЙСЫ</div>
+                <div class="polaroid-caption">Работа с текстом и редакторские правки</div>
             </a>
         </div>
     </section>
 
     <footer id="contact">
-        <h2 style="color: white; margin-bottom: 20px;">Let's Talk</h2>
-        <p>Telegram: @d_s_m</p>
-        <p>Email: ds_mamaeva@mail.ru</p>
-        <p style="margin-top: 30px; font-size: 0.7rem; opacity: 0.5;">DARIA MAMAEVA © 2024</p>
+        <h2 style="color: white; margin-bottom: 20px;">Связаться со мной</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 10px;">Telegram: @d_s_m</p>
+        <p style="font-size: 1.2rem; margin-bottom: 40px;">Email: ds_mamaeva@mail.ru</p>
+        <hr style="opacity: 0.2; margin-bottom: 30px;">
+        <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px;">Дарья Мамаева © 2026</p>
     </footer>
 
     <script>
-        // Скрипт для анимации появления при скролле
+        // Функция анимации появления элементов при скролле
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
+        // Запускаем один раз при загрузке
+        reveal();
     </script>
 </body>
 </html>
