@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Да рья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1302,6 +1302,79 @@
     .collage-main-frame { transform: none; margin-top: 30px; }
     .note-box { transform: none; max-width: 100%; }
 }
+
+
+    /* --- СТИЛИ ДЛЯ ВИДЕОПЛЕЕРА RUTUBE --- */
+.film-player-section {
+    margin-top: 60px;
+    padding-bottom: 80px;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Контейнер для адаптивности (16:9) */
+.rutube-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Пропорция 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 4px;
+}
+
+.rutube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Рамка вокруг плеера в стиле монитора */
+.monitor-frame {
+    background: #1a1a1a; /* Темный кант */
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* Футер под плеером */
+.player-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+    color: var(--accent-red);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Анимированная точка записи */
+.dot-rec {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Гарантируем кликабельность плеера */
+.rutube-container, .monitor-frame {
+    pointer-events: auto !important;
+}
 </style>
 
 <script>
@@ -2392,11 +2465,11 @@ const videoCases = {
                       
                         <h4 class="char-name">Референсы</h4>
                         <p class="char-desc mono-text">
-                    <p><a href="https://piligrim.fund/film/f5">1.	F5   </a></p>
-                    <p><a href="https://piligrim.fund/film/chizhiki">2.	Чижики</a></p>
-                    <p><a href="https://piligrim.fund/film/eto-ya-3-sezon">3.	Веб-сериал «Это я»: 3 сезон</a></p>
-                    <p><a href="https://piligrim.fund/film/dva-detstva">4.	Два детства</a></p>
-                    <p><a href="https://piligrim.fund/film/arbatstvo">5.	“Арбатство”</a></p>
+                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/f5">1.	F5   </a></p>
+                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/chizhiki">2.	Чижики</a></p>
+                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/eto-ya-3-sezon">3.	Веб-сериал «Это я»: 3 сезон</a></p>
+                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/dva-detstva">4.	Два детства</a></p>
+                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/arbatstvo">5.	“Арбатство”</a></p>
                     
 
                     </div>
@@ -2405,6 +2478,35 @@ const videoCases = {
 
         </div>
     </div>
+
+
+    <div class="film-player-section">
+    <p class="section-divider mono-text"><span>FINAL CUT / WATCH FILM</span></p>
+    
+    <div class="video-monitor-wrapper">
+        <div class="monitor-frame">
+            <div class="rutube-container">
+                <iframe 
+                    src="https://rutube.ru/play/embed/dce054c2366c341d29c43160a78addf7" 
+                    frameBorder="0" 
+                    allow="clipboard-write; autoplay" 
+                    webkitAllowFullScreen 
+                    mozallowfullscreen 
+                    allowFullScreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="player-footer monospaced">
+            <div class="footer-left">
+                <span class="dot-rec"></span> REC 00:24:59:12
+            </div>
+            <div class="footer-right">
+                PROJECT_PETER_V1.MP4
+            </div>
+        </div>
+    </div>
+</div>
 `,
 
     
