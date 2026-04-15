@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Да рья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -944,199 +944,156 @@
 
 
 
-    /* --- 4. КОЛЛАЖ: КОРОТКИЙ МЕТР (Новые стили) --- */
-/* Общий контейнер раздела видеопродакшена (для текстуры) */
-#video-case-display {
-    background-color: #fcfbf4; /* Молочный фон */
-    background-image: url('film-grain.png'); /* Субтильная текстура (пленка или бумага) */
-    background-blend-mode: multiply; /* Для текстуры */
+/* --- СТИЛИ ДЛЯ КОЛЛАЖА КОРОТКИЙ МЕТР --- */
+.film-collage-wrapper {
+    background-color: #fdfaf5; /* Тот самый молочный */
+    padding: 60px 20px;
+    color: #1a1a1a;
 }
 
-/* Контейнер коллажа с абсолютным позиционированием элементов */
-#short-film-collage {
-    position: relative;
-    width: 100%;
-    height: 90vh; /* Высота почти во весь экран для динамики */
-    min-height: 700px;
+.film-collage-inner {
+    max-width: 1100px;
     margin: 0 auto;
-    overflow: hidden; /* Чтобы декорации не вылезали */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-/* Общие стили для наложенных блоков */
-.text-overlay, .visual-overlay {
-    position: absolute;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-/* Шрифт */
-.monospaced {
-    font-family: 'Courier New', Courier, monospace; /* Для "typewritten" эффекта */
-    font-size: 0.85rem;
-    color: #333;
-}
-
-.serif {
-    font-family: 'Playfair Display', serif;
-}
-
-/* --- Заголовок и Кредиты --- */
-.short-film-title {
-    color: var(--accent-red);
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 15px;
-}
-
-.the-script-label {
-    color: var(--accent-red);
-    letter-spacing: 2px;
+/* Общие шрифты */
+.mono-text, .mono-label, .note-tag, .role-tag {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
-.credits-list p {
-    margin-bottom: 5px;
-    font-size: 0.9rem;
+/* Верхний блок */
+.collage-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-.credits-list .label {
+.film-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
     color: var(--accent-red);
+    line-height: 0.9;
+    margin: 15px 0;
+}
+
+.film-meta p {
+    margin-bottom: 5px;
+}
+
+/* Фотография */
+.collage-main-frame {
+    position: relative;
+    transform: rotate(3deg);
+    max-width: 400px;
+}
+
+.polaroid-border {
+    background: #fff;
+    padding: 15px 15px 50px 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.polaroid-border img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.frame-caption {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 0.7rem;
+}
+
+/* Заметки (наслоение) */
+.collage-notes-row {
+    display: flex;
+    gap: 30px;
+    margin-top: -30px; /* Наплыв на верхний блок */
+    z-index: 2;
+}
+
+.note-box {
+    background: #fff;
+    padding: 25px;
+    max-width: 350px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-top: 3px solid var(--accent-red);
+}
+
+.production-note { transform: rotate(-1deg); }
+.script-note { transform: rotate(1deg); margin-top: 20px; }
+
+.note-tag {
+    color: var(--accent-red);
+    display: block;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
-/* --- Главное фото --- */
-.collage-main-image {
-    width: 35%;
-    max-width: 450px;
-    z-index: 10;
+/* Кастинг */
+.collage-cast-section {
+    margin-top: 40px;
 }
 
-.collage-photo-frame {
+.section-divider {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    line-height: 0.1em;
+    margin: 40px 0;
+}
+
+.section-divider span { background:#fdfaf5; padding:0 10px; }
+
+.cast-cards-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cast-card {
     background: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
-.collage-photo-frame img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    filter: sepia(10%); /* Subtle film filter */
-}
-
-.production-label {
-    position: absolute;
-    top: -20px;
-    right: 0;
-    color: var(--accent-red);
-}
-
-/* --- Заметки (Notes) --- */
-.collage-note {
-    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #eee;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    z-index: 20;
     width: 280px;
-    border-left: 3px solid var(--accent-red);
+    transition: var(--transition);
 }
 
-.production-lead-label, .story-casting-label {
+.cast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(139, 26, 26, 0.1);
+}
+
+.char-name {
+    font-family: 'Playfair Display', serif;
     color: var(--accent-red);
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
+    margin: 10px 0;
 }
 
-.note-content {
-    line-height: 1.6;
-}
-
-.script-note {
-    background: #fff;
-    font-size: 0.8rem;
-    padding-left: 20px;
-    padding-right: 15px;
-}
-
-/* --- Кастинг (Character Cards) --- */
-.collage-cast-block {
-    z-index: 5;
-}
-
-.collage-cast-card {
-    background: #fff;
-    width: 250px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.role-label {
-    color: var(--accent-red);
-    font-size: 0.7rem;
-    margin-bottom: 10px;
-}
-
-.character-name {
-    font-size: 1.3rem;
-    color: var(--accent-red);
-    margin-bottom: 5px;
-}
-
-.character-desc {
+.char-desc {
+    font-size: 0.75rem;
     color: #666;
-    line-height: 1.5;
 }
 
-/* --- Декорации --- */
-.line {
-    position: absolute;
-    height: 2px;
-    background-color: var(--accent-red);
-    width: 150px;
-    transform: rotate(-10deg);
-}
-
-.arrow {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-image: url('arrow_icon.svg'); /* Используй иконку стрелки */
-    color: var(--accent-red);
-}
-
-.film-reel-icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url('film_reel.svg'); /* Иконка кинопленки */
-    color: var(--accent-red);
-    opacity: 0.2;
-}
-
-/* Адаптивность для мобильных (на телефоне коллаж не работает) */
+/* Мобильная версия */
 @media (max-width: 768px) {
-    #short-film-collage {
-        height: auto;
-        display: flex;
+    .collage-top-row, .collage-notes-row {
         flex-direction: column;
-        padding: 40px 20px;
+        align-items: center;
+        margin-top: 0;
     }
-    .text-overlay, .visual-overlay {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        width: 100% !important;
-        margin-bottom: 30px;
-    }
-    .short-film-title { font-size: 2.2rem; }
-    .collage-main-image { order: 1; }
-    .collage-credits-block { order: 2; }
-    .cast-cards-flex { flex-direction: column; }
+    .collage-main-frame { transform: none; margin-top: 30px; }
+    .note-box { transform: none; max-width: 100%; }
 }
 </style>
 
@@ -2177,70 +2134,64 @@ const videoCases = {
         `,
 
 'short-film': `
-        <div id="short-film-collage" class="collage-container">
+    <div class="film-collage-wrapper">
+        <div class="film-collage-inner">
             
-            <div class="collage-credits-block text-overlay" style="top: 10%; left: 5%;">
-                <p class="the-script-label monospaced">THE SCRIPT</p>
-                <h2 class="short-film-title serif">Любовь<br>и Питер</h2>
+            <div class="collage-top-row">
+                <div class="collage-header-text">
+                    <span class="mono-label">THE SCRIPT</span>
+                    <h2 class="film-main-title">Любовь<br>и Питер</h2>
+                    <div class="film-meta mono-text">
+                        <p><strong>PROJECT:</strong> ‘Любовь и Питер’</p>
+                        <p><strong>ROLE:</strong> SHOWRUNNER</p>
+                        <p><strong>GENRE:</strong> DRAMA / INTERACTIVE</p>
+                    </div>
+                </div>
+
+                <div class="collage-main-frame">
+                    <div class="polaroid-border">
+                        <img src="backstage_1.jpg" alt="Production">
+                    </div>
+                    <span class="frame-caption mono-text">SCENE 04 / PROD. LOG</span>
+                </div>
+            </div>
+
+            <div class="collage-notes-row">
+                <div class="note-box production-note">
+                    <span class="note-tag mono-text">PRODUCTION LEAD</span>
+                    <p>Я реализовала полный цикл обязанностей шоураннера. Работа над интерактивным фильмом требовала выстраивания сложной логики «точек выбора», где каждое решение зрителя меняет ход истории.</p>
+                </div>
                 
-                <div class="credits-list monospaced">
-                    <p><span class="label">ПРОЕКТ:</span> ‘Любовь и Питер’</p>
-                    <p><span class="label">РОЛЬ:</span> Шоураннер</p>
-                    <p><span class="label">ФОРМАТ:</span> Интерактивный</p>
-                    <p><span class="label">ЖАНР:</span> Драма, Взросление</p>
+                <div class="note-box script-note">
+                    <span class="note-tag mono-text">THE STORY</span>
+                    <p>Мной была создана многослойная драматургия. Разработаны детальные психотипы героев и вариативный сценарий с 6+ ключевыми точками выбора, влияющими на финал.</p>
                 </div>
             </div>
 
-            <div class="collage-main-image visual-overlay" style="top: 15%; right: 10%;">
-                <div class="collage-photo-frame">
-                    <img src="backstage_1.jpg" alt="Процесс съемок: Камера">
-                </div>
-                <p class="production-label monospaced">THE PRODUCTION</p>
-            </div>
-
-            <div class="collage-note production-note text-overlay text-block" style="top: 40%; left: 10%;">
-                <p class="production-lead-label monospaced">Production Lead</p>
-                <p class="note-content">
-                    Я реализовала полный цикл обязанностей шоураннера. Работа над интерактивным фильмом требовала не только стандартного сценарного подхода, но и выстраивания сложной логики «точек выбора», где каждое решение зрителя меняет ход истории.
-                </p>
-            </div>
-
-            <div class="collage-note script-note text-overlay monospaced text-block" style="top: 55%; left: 15%;">
-                <p class="story-casting-label monospaced">THE STORY / CASTING</p>
-                <p class="note-content">
-                    Мной была создана многослойная драматургия, сфокусированная на проблеме взросления и ответственности. Разработаны детальные психотипы героев, их вариативный сценарий с 6+ ключевыми точками выбора, влияющими на финал.
-                </p>
-            </div>
-
-            <div class="collage-cast-block" style="bottom: 10%; width: 100%;">
-                <p class="the-cast-label monospaced" style="text-align: center; margin-bottom: 20px;">THE CAST</p>
-                
-                <div class="cast-cards-flex" style="display: flex; gap: 20px; justify-content: center; overflow-x: auto; padding-bottom: 15px;">
-                    <div class="collage-cast-card text-overlay cast-card">
-                        <p class="role-label monospaced">CHARACTER ARCHITECT</p>
-                        <p class="character-name serif">Главный герой</p>
-                        <p class="character-desc monospaced">Серьезный, эмпатичный. Конфликт — выбор между мечтой и привязанностью.</p>
+            <div class="collage-cast-section">
+                <p class="section-divider mono-text">THE CASTING BOARD</p>
+                <div class="cast-cards-container">
+                    <div class="cast-card">
+                        <span class="role-tag mono-text">LEAD MALE</span>
+                        <h4 class="char-name">Главный герой</h4>
+                        <p class="char-desc mono-text">Серьезный, эмпатичный. Конфликт — выбор между мечтой и привязанностью.</p>
                     </div>
-                    <div class="collage-cast-card text-overlay cast-card">
-                        <p class="role-label monospaced">CHARACTER ARCHITECT</p>
-                        <p class="character-name serif">Главная героиня</p>
-                        <p class="character-desc monospaced">Наивная, ведомая. Питер для неё — символ свободы, скрывающий страх.</p>
+                    <div class="cast-card">
+                        <span class="role-tag mono-text">LEAD FEMALE</span>
+                        <h4 class="char-name">Главная героиня</h4>
+                        <p class="char-desc mono-text">Наивная, ведомая. Питер для неё — символ свободы, скрывающий страх.</p>
                     </div>
-                    <div class="collage-cast-card text-overlay cast-card">
-                        <p class="role-label monospaced">CHARACTER ARCHITECT</p>
-                        <p class="character-name serif">«Темщик»</p>
-                        <p class="character-desc monospaced">Петербургский переговорщик, триггер для опасных решений.</p>
+                    <div class="cast-card">
+                        <span class="role-tag mono-text">ANTAGONIST</span>
+                        <h4 class="char-name">«Темщик»</h4>
+                        <p class="char-desc mono-text">Петербургский переговорщик, триггер для опасных решений.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="collage-graphics">
-                <div class="line line-1" style="top: 25%; left: 20%;"></div>
-                <div class="arrow arrow-1" style="top: 45%; left: 5%;"></div>
-                <div class="film-reel-icon" style="bottom: 5%; right: 5%;"></div>
-            </div>
         </div>
-    `,
+    </div>
+`
 
     
     'personal-blog': `
