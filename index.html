@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Да рья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -38,23 +38,23 @@
 
         /* Стили оверлея */
 .overlay {
-    display: none;
+    display: none; /* Скрыт изначально */
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(253, 250, 245, 0.98); /* Кремовый фон как у сайта */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
     z-index: 1000;
     overflow-y: auto;
-    padding: 50px 0;
 }
 
 .overlay-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+    background-color: var(--bg-cream);
+    margin: 5% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 1200px;
     position: relative;
+    border-radius: 15px;
 }
 
 .close-overlay {
@@ -64,6 +64,14 @@
     font-size: 2.5rem;
     cursor: pointer;
     color: var(--text-dark);
+}
+
+        .close-btn {
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 40px;
+    cursor: pointer;
+    color: var(--accent-red);
 }
 
 .case-main-title {
@@ -624,12 +632,83 @@
 
         <div id="article-display" style="margin-top: 60px; display: none; border-top: 1px solid #eee; padding-top: 40px;">
             <div id="article-content" style="max-width: 800px; margin: 0 auto; line-height: 1.8; font-family: 'Montserrat', sans-serif;">
-                </div>
+             </div>
+        </div>
+    </div>
+
+
+    <div id="video-buttons" class="sub-category-container" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
+        <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите кейс:</h3>
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto;">
+            <button class="text-nav-btn" onclick="openCase('tiktok-meet')">Развитие TikTok Meet Market</button>
+            <button class="text-nav-btn" onclick="openCase('short-film')">Полный цикл создания короткого метра</button>
+            <button class="text-nav-btn" onclick="openCase('personal-blog')">Личный блог</button>
         </div>
     </div>
 </section>
 
 <style>
+
+    /* Стили для триггера категории */
+.category-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(139, 26, 26, 0.2);
+    transition: var(--transition);
+}
+
+.category-trigger:hover {
+    padding-left: 10px;
+}
+
+.trigger-icon {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-red);
+    transition: transform 0.4s ease;
+}
+
+/* Контейнер кнопок */
+.sub-category-container {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    transition: max-height 0.5s ease-out, padding 0.5s ease;
+}
+
+/* Когда категория активна */
+.sub-category-container.active {
+    max-height: 500px; /* Достаточно для всех кнопок */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.category-trigger.active .trigger-icon {
+    transform: rotate(45deg); /* Плюс превращается в крестик */
+}
+
+/* Стилизация кнопок-кейсов (в дополнение к вашим существующим) */
+.sub-category-container .text-nav-btn {
+    width: fit-content;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.sub-category-container.active .text-nav-btn {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Задержка появления для эффекта "лесенки" */
+.sub-category-container .text-nav-btn:nth-child(2) { transition-delay: 0.1s; }
+.sub-category-container .text-nav-btn:nth-child(3) { transition-delay: 0.2s; }
 
 /* Основная сетка шапки */
 /* Также убедитесь, что родительский контейнер имеет эти свойства */
@@ -1463,6 +1542,15 @@
             display.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
     }
+
+// Переключение категории (Видеопродакшен)
+function toggleCategory(containerId) {
+    const container = document.getElementById(containerId);
+    const trigger = container.previousElementSibling;
+    container.classList.toggle('active');
+    trigger.classList.toggle('active');
+}
+    
 </script>
 
 <script>
@@ -1482,6 +1570,18 @@
         <p>Telegram: @d_s_m | Дарья Мамаева © 2026</p>
     </footer>
 
+    <section id="video-production" class="reveal section-container">
+    <div class="category-trigger" onclick="toggleCategory('video-buttons')">
+        <h2 class="section-title">Видеопродакшен</h2>
+        <span class="trigger-icon">+</span>
+    </div>
+
+    <div id="video-buttons" class="sub-category-container">
+        <button class="text-nav-btn" onclick="openCase('tiktok-meet')">Развитие TikTok Meet Market</button>
+        <button class="text-nav-btn" onclick="openCase('short-film')">Полный цикл создания короткого метра</button>
+        <button class="text-nav-btn" onclick="openCase('personal-blog')">Личный блог</button>
+    </div>
+</section>
 
 <div id="case-overlay" class="overlay">
     <div class="overlay-content">
@@ -1728,14 +1828,21 @@
         reveal();
 
 
-        function openCase(caseId) {
-    document.getElementById('case-overlay').style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Запрещаем прокрутку сайта под оверлеем
+function openCase(caseId) {
+    const targetCase = document.getElementById(caseId);
+    if (targetCase) {
+        targetCase.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
 }
 
-function closeCase() {
-    document.getElementById('case-overlay').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Возвращаем прокрутку
+// Закрывает нужный кейс
+function closeCase(caseId) {
+    const targetCase = document.getElementById(caseId);
+    if (targetCase) {
+        targetCase.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // Закрытие при клике вне контента
