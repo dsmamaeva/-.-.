@@ -759,8 +759,16 @@
 
 .strategy-title {
     font-family: 'Playfair Display', serif;
+    /* Уменьшаем шрифт на 10% (было 1.5rem, стало 1.35rem) */
+    font-size: 1.35rem; 
     color: var(--accent-red);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-red);
+    display: inline-block;
+    
+    /* Выравнивание по левому краю */
+    text-align: left; 
+    width: auto;
 }
 
 .strategy-content p {
