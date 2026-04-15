@@ -1407,6 +1407,133 @@
 .rutube-container, .monitor-frame {
     pointer-events: auto !important;
 }
+
+
+
+
+
+
+
+    /* --- MAGAZINE STYLE (EDITOR WORK) --- */
+.magazine-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: var(--bg-cream);
+}
+
+.magazine-header {
+    text-align: left;
+    margin-bottom: 80px;
+}
+
+.mag-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--accent-red);
+    line-height: 1;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+.mag-line {
+    width: 100%;
+    height: 1px;
+    background: var(--accent-red);
+    margin-top: 20px;
+}
+
+.mag-project {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 120px;
+}
+
+.mag-project-info {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.mag-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--accent-red);
+    font-style: italic;
+    border-bottom: 2px solid var(--accent-red);
+}
+
+.mag-project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.mag-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    max-width: 800px;
+    column-count: 2; /* Журнальная верстка в две колонки */
+    column-gap: 40px;
+}
+
+/* Галлерея листов А4 */
+.mag-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.a4-sheet {
+    position: relative;
+    aspect-ratio: 1 / 1.414; /* Пропорции листа А4 */
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.a4-sheet img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.a4-sheet:hover {
+    transform: translateY(-10px);
+}
+
+.sheet-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(139, 26, 26, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.a4-sheet:hover .sheet-overlay {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .mag-description { column-count: 1; }
+    .mag-title { font-size: 2.5rem; }
+    .mag-project-info { grid-template-columns: 1fr; gap: 10px; }
+}
 </style>
 
 <script>
@@ -1415,20 +1542,104 @@
 
 
 
-
+function zoomImage(src) {
+    // Используем твой механизм оверлея
+    const overlay = document.getElementById('case-overlay');
+    const content = document.getElementById('case-content');
+    
+    content.innerHTML = `
+        <div style="text-align:center; padding: 20px;">
+            <img src="${src}" style="max-width: 100%; max-height: 90vh; box-shadow: 0 0 50px rgba(0,0,0,0.5);">
+            <p style="color:white; margin-top: 15px; font-family: 'Montserrat'; cursor: pointer;" onclick="closeCase()">[ ЗАКРЫТЬ ]</p>
+        </div>
+    `;
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
 
 
     
     const articles = {
        
-        'editor-work': `
-        <div class="case-hero-section">
-            <div class="hero-strategy-card full-width-strategy">
-                <h3 class="strategy-title" style="font-size: 1.35rem; text-align: left;">Редакторская работа и корректура</h3>
-                <div class="strategy-content">
-                    <p>Здесь вы можете описать ваш опыт работы с текстами: проверку фактов, работу со стилистикой, управление редполитикой и адаптацию сложных материалов под разные форматы...</p>
+       'editor-work': `
+        <div class="magazine-layout">
+            <header class="magazine-header">
+                <span class="mono-label">EDITORIAL PORTFOLIO</span>
+                <h2 class="mag-title">Редакторские<br>проекты</h2>
+                <div class="mag-line"></div>
+            </header>
+
+            <section class="mag-project">
+                <div class="mag-project-info">
+                    <div class="mag-number">01</div>
+                    <div class="mag-text-content">
+                        <h3 class="mag-project-title">Название первого проекта</h3>
+                        <p class="mag-description">
+                            Здесь располагается описание вашей работы (~500 знаков). Например: работа над этим материалом включала в себя глубокую проверку фактов и адаптацию сложного научного исследования под формат лонгрида. Я работала над структурой повествования, убирая канцеляризмы и сохраняя авторский стиль, при этом делая текст доступным для широкой аудитории глянцевого издания. Особое внимание было уделено заголовкам и лидам, которые должны «цеплять» читателя в цифровой среде.
+                        </p>
+                    </div>
                 </div>
-            </div>
+                <div class="mag-gallery">
+                    <div class="a4-sheet" onclick="zoomImage('page1_1.jpg')">
+                        <img src="page1_1.jpg" alt="Page 1">
+                        <div class="sheet-overlay"><span>Увеличить</span></div>
+                    </div>
+                    <div class="a4-sheet" onclick="zoomImage('page1_2.jpg')">
+                        <img src="page1_2.jpg" alt="Page 2">
+                        <div class="sheet-overlay"><span>Увеличить</span></div>
+                    </div>
+                    <div class="a4-sheet" onclick="zoomImage('page1_3.jpg')">
+                        <img src="page1_3.jpg" alt="Page 3">
+                        <div class="sheet-overlay"><span>Увеличить</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mag-project">
+                <div class="mag-project-info">
+                    <div class="mag-number">02</div>
+                    <div class="mag-text-content">
+                        <h3 class="mag-project-title">Название второго проекта</h3>
+                        <p class="mag-description">
+                            Описание второго проекта. Здесь можно рассказать о корректуре или управлении редполитикой. Как вы выстраивали коммуникацию с авторами, какие стилевые гайды использовали и как добивались единообразия терминологии в большом выпуске. Текст фокусируется на деталях, которые незаметны рядовому читателю, но создают ощущение высокого качества продукта. Работа с интонацией бренда и соблюдение дедлайнов при работе с внешними контрибьюторами.
+                        </p>
+                    </div>
+                </div>
+                <div class="mag-gallery">
+                    <div class="a4-sheet" onclick="zoomImage('page2_1.jpg')">
+                        <img src="page2_1.jpg" alt="Page 1">
+                    </div>
+                    <div class="a4-sheet" onclick="zoomImage('page2_2.jpg')">
+                        <img src="page2_2.jpg" alt="Page 2">
+                    </div>
+                    <div class="a4-sheet" onclick="zoomImage('page2_3.jpg')">
+                        <img src="page2_3.jpg" alt="Page 3">
+                    </div>
+                </div>
+            </section>
+
+            <section class="mag-project">
+                <div class="mag-project-info">
+                    <div class="mag-number">03</div>
+                    <div class="mag-text-content">
+                        <h3 class="mag-project-title">Название третьего проекта</h3>
+                        <p class="mag-description">
+                            Описание третьего проекта. Например, адаптация интервью или работа над колонкой главного редактора. В этом кейсе я проявила навыки сокращения объема без потери смысла (дистилляция смыслов). Текст стал более динамичным и современным. Проверка цитат, работа с источниками на иностранных языках и финальная вычитка перед печатью/публикацией. Результат: текст, который цитируют и которым делятся в социальных сетях.
+                        </p>
+                    </div>
+                </div>
+                <div class="mag-gallery">
+                    <div class="a4-sheet" onclick="zoomImage('page3_1.jpg')">
+                        <img src="page3_1.jpg" alt="Page 1">
+                    </div>
+                    <div class="a4-sheet" onclick="zoomImage('page3_2.jpg')">
+                        <img src="page3_2.jpg" alt="Page 2">
+                    </div>
+                    <div class="a4-sheet" onclick="zoomImage('page3_3.jpg')">
+                        <img src="page3_3.jpg" alt="Page 3">
+                    </div>
+                </div>
+            </section>
         </div>
     `,
         
