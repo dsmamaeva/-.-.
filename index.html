@@ -632,12 +632,12 @@
 <style>
 
 /* Основная сетка шапки */
+/* Также убедитесь, что родительский контейнер имеет эти свойства */
 .case-hero-section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
-    gap: 20px;
-    margin-bottom: 40px;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+    gap: 15px;
+    width: 100%;
 }
     /* Контейнер для текста внутри пропорции 9:16 */
 .results-content-overlay {
@@ -691,11 +691,11 @@
     color: #333;
 }
 
-/* Растягиваем стратегию на все 3 колонки снизу */
+/* Этот класс отвечает за растягивание блока на все 3 колонки */
 .full-width-strategy {
-    grid-column: 1 / 4; /* Растянуться от 1-й до 4-й линии (то есть занять все 3 колонки) */
+    grid-column: 1 / 4 !important; /* Занять место с 1 по 4 линию сетки */
     width: 100%;
-    box-sizing: border-box; /* Чтобы padding не раздувал ширину */
+    display: block; 
 }
 
 /* Блок с двумя фото */
