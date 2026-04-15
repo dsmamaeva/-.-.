@@ -621,6 +621,7 @@
             <button class="text-nav-btn" onclick="showArticle('tetto-smm')">Материал для соцсетей Tetto Italian Bistro</button>
             <button class="text-nav-btn" onclick="showArticle('balcon')">Материал для лаундж-бара Balcon</button>
             <button class="text-nav-btn" onclick="showArticle('tetto-rest')">Материал для ресторана TÉTTO</button>
+            <button class="text-nav-btn editor-btn" onclick="showArticle('editor-work')">РЕДАКТОРСКАЯ РАБОТА</button>
         </div>
 
         <div id="article-display" style="margin-top: 60px; display: none; border-top: 1px solid #eee; padding-top: 40px;">
@@ -818,6 +819,37 @@
         --text-dark: #333;
     }
 
+
+
+
+/* Специальный стиль для кнопки редактора */
+.editor-btn {
+    background-color: var(--accent-red) !important;
+    color: var(--bg-cream) !important;
+    border: 2px solid var(--accent-red) !important;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.editor-btn:hover {
+    background-color: transparent !important;
+    color: var(--accent-red) !important;
+}
+
+/* Эффект легкого свечения или акцента */
+.editor-btn::after {
+    content: '★';
+    margin-left: 10px;
+    font-size: 0.8rem;
+}
+
+
+
+    
     .text-nav-btn {
         background: transparent;
         border: 1px solid #ddd;
