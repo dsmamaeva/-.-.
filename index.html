@@ -602,26 +602,27 @@
 
 
 
-      <div class="polaroid-menu-card" onclick="showFolder('design-folder')">
-    <div class="polaroid-inner">
+<div class="design-menu-wrapper">
+    <div class="polaroid-menu-card" onclick="showFolder('design-folder')">
         <div class="polaroid-image-mock">
-            <img src="figma_icon.png" alt="Figma Design" style="width: 40px; opacity: 0.5;">
+            <img src="figma_icon.png" style="width: 40px; opacity: 0.5;">
         </div>
         <div class="polaroid-label">
             <h3 class="handwritten">Дизайн</h3>
-            <p class="mono-sub">проекты, сделанные в figma</p>
+            <p class="mono-sub">проекты в figma</p>
+        </div>
+    </div>
+
+    <div id="design-folder" class="folder-content" style="display: none; width: 100%;">
+        <div class="design-menu-grid">
+            <button class="text-nav-btn" onclick="showDesignCase('b2b-site')">Сайт для B2B</button>
+            <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Приложение экскурсий</button>
+            <button class="text-nav-btn" onclick="showDesignCase('tg-cards')">Карточки для ТГ</button>
         </div>
     </div>
 </div>
 
-<div id="design-folder" class="folder-content" style="display: none;">
-    <h3 class="mag-title" style="font-size: 2rem; text-align: center; margin-bottom: 30px;">Design Cases</h3>
-    <div class="design-menu-grid">
-        <button class="text-nav-btn" onclick="showDesignCase('b2b-site')">Сайт для B2B сегмента</button>
-        <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Разработка приложения для аудио-экскурсий</button>
-        <button class="text-nav-btn" onclick="showDesignCase('tg-cards')">Карточки для телеграм-канала</button>
-    </div>
-</div>
+        
 
     <div id="text-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
         <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите категорию материала:</h3>
@@ -667,67 +668,53 @@
 <style>
 
 
-    /* --- POLAROID MENU CARD --- */
+/* --- СТРОГАЯ СЕТКА МЕНЮ --- */
+.design-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
 .polaroid-menu-card {
     width: 200px;
     background: #fff;
-    padding: 12px 12px 35px 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform: rotate(-3deg); /* Легкий наклон */
-    display: inline-block;
-    margin: 20px;
+    transition: all 0.3s ease;
+    transform: rotate(-2deg);
+    flex-shrink: 0; /* Не даем карточке сжиматься */
 }
 
-.polaroid-menu-card:hover {
-    transform: rotate(0deg) scale(1.05);
-    box-shadow: 0 15px 35px rgba(139, 26, 26, 0.15);
-}
-
-.polaroid-inner {
-    border: 1px solid #eee;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+.polaroid-menu-card:hover { transform: rotate(0deg) scale(1.02); }
 
 .polaroid-image-mock {
-    background: #f9f9f9;
-    height: 140px;
+    width: 100%;
+    height: 150px;
+    background: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
-.polaroid-label {
-    padding-top: 15px;
-    text-align: center;
-}
-
-.handwritten {
-    font-family: 'Playfair Display', serif; /* Или любой рукописный шрифт */
-    color: var(--accent-red);
-    margin: 0;
-    font-size: 1.4rem;
-    font-style: italic;
-}
-
-.mono-sub {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.65rem;
-    color: #888;
-    margin-top: 5px;
-    text-transform: uppercase;
-}
-
-/* Сетка меню дизайна */
+/* Сетка разделов дизайна */
 .design-menu-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 500px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.text-nav-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 
