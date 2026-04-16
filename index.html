@@ -602,22 +602,21 @@
 
 
 
-<div class="design-menu-wrapper">
-    <div class="polaroid-menu-card" onclick="showFolder('design-folder')">
-        <div class="polaroid-image-mock">
-            <img src="figma_icon.png" style="width: 40px; opacity: 0.5;">
+<div class="design-section-container" style="display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
+    
+    <div class="polaroid" style="transform: rotate(2deg); cursor: pointer;" onclick="toggleDesignFolder()">
+        <div class="polaroid-img" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: 'Playfair Display', serif; letter-spacing: 2px;">ДИЗАЙН</span>
         </div>
-        <div class="polaroid-label">
-            <h3 class="handwritten">Дизайн</h3>
-            <p class="mono-sub">проекты в figma</p>
-        </div>
+        <p class="hero-subtitle">Проекты, сделанные в Figma</p>
+        <span id="design-folder-status" style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(ОТКРЫТЬ СПИСОК РАБОТ)</span>
     </div>
 
-    <div id="design-folder" class="folder-content" style="display: none; width: 100%;">
-        <div class="design-menu-grid">
-            <button class="text-nav-btn" onclick="showDesignCase('b2b-site')">Сайт для B2B</button>
-            <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Приложение экскурсий</button>
-            <button class="text-nav-btn" onclick="showDesignCase('tg-cards')">Карточки для ТГ</button>
+    <div id="design-folder" style="display: none; width: 100%; max-width: 600px; margin-top: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button class="text-nav-btn" onclick="showArticle('b2b-site')">Сайт для B2B сегмента</button>
+            <button class="text-nav-btn" onclick="showArticle('audio-app')">Приложение для аудио-экскурсий</button>
+            <button class="text-nav-btn" onclick="showArticle('tg-cards')">Карточки для телеграм-канала</button>
         </div>
     </div>
 </div>
@@ -1610,6 +1609,58 @@
     .mag-title { font-size: 2.5rem; }
     .mag-project-info { grid-template-columns: 1fr; gap: 10px; }
 }
+
+    /* Контейнер для выравнивания всех карточек в ряд, если нужно */
+.hero-folders-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Стандартизация полароида */
+.polaroid {
+    width: 220px; /* Фиксированная ширина как у видео */
+    background: #fff;
+    padding: 15px 15px 40px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.02) !important;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    border: 1px solid #f0f0f0;
+    font-weight: bold;
+    color: var(--accent-red);
+}
+
+/* Кнопки внутри папок */
+.text-nav-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 12px;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.text-nav-btn:hover {
+    background: var(--accent-red);
+    color: #fff;
+}
+
+    
 </style>
 
 <script>
@@ -2913,6 +2964,20 @@ function showFolder(folderId) {
 </script>
 
 <script>
+
+    function toggleDesignFolder() {
+    const folder = document.getElementById('design-folder');
+    const status = document.getElementById('design-folder-status');
+    
+    if (folder.style.display === 'none' || folder.style.display === '') {
+        folder.style.display = 'block';
+        status.innerText = '(ЗАКРЫТЬ СПИСОК РАБОТ)';
+        folder.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+        folder.style.display = 'none';
+        status.innerText = '(ОТКРЫТЬ СПИСОК РАБОТ)';
+    }
+}
 
     function showVideoCase(caseId) {
     const display = document.getElementById('video-case-display');
