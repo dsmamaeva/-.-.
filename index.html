@@ -602,26 +602,11 @@
 
 
 
-<div class="design-section-container" style="display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
-    
-    <div class="polaroid" style="transform: rotate(2deg); cursor: pointer;" onclick="toggleDesignFolder()">
-        <div class="polaroid-img" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-            <span style="font-family: 'Playfair Display', serif; letter-spacing: 2px;">ДИЗАЙН</span>
-        </div>
-        <p class="hero-subtitle">Проекты, сделанные в Figma</p>
-        <span id="design-folder-status" style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(ОТКРЫТЬ СПИСОК РАБОТ)</span>
+        <a href="https://docs.google.com/document/d/19uby1183Vfg6hvDo68lnPg07vG5e-WKEgw9Jft194Ro/edit?usp=sharing" class="polaroid" style="transform: rotate(-1deg);" target="_blank">
+            <div class="polaroid-img">РЕДАКТУРА</div>
+            <p class="hero-subtitle">Кейсы и правки</p>
+        </a>
     </div>
-
-    <div id="design-folder" style="display: none; width: 100%; max-width: 600px; margin-top: 20px;">
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-            <button class="text-nav-btn" onclick="showArticle('b2b-site')">Сайт для B2B сегмента</button>
-            <button class="text-nav-btn" onclick="showArticle('audio-app')">Приложение для аудио-экскурсий</button>
-            <button class="text-nav-btn" onclick="showArticle('tg-cards')">Карточки для телеграм-канала</button>
-        </div>
-    </div>
-</div>
-
-        
 
     <div id="text-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
         <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите категорию материала:</h3>
@@ -665,61 +650,6 @@
 </section>
 
 <style>
-
-
-/* --- СТРОГАЯ СЕТКА МЕНЮ --- */
-.design-menu-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-}
-
-.polaroid-menu-card {
-    width: 200px;
-    background: #fff;
-    padding: 10px 10px 30px 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform: rotate(-2deg);
-    flex-shrink: 0; /* Не даем карточке сжиматься */
-}
-
-.polaroid-menu-card:hover { transform: rotate(0deg) scale(1.02); }
-
-.polaroid-image-mock {
-    width: 100%;
-    height: 150px;
-    background: #f4f4f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-/* Сетка разделов дизайна */
-.design-menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-}
-
-.text-nav-btn {
-    width: 100%;
-    padding: 15px;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-
-
-
-    
 
 /* Основная сетка шапки */
 /* Также убедитесь, что родительский контейнер имеет эти свойства */
@@ -1609,58 +1539,6 @@
     .mag-title { font-size: 2.5rem; }
     .mag-project-info { grid-template-columns: 1fr; gap: 10px; }
 }
-
-    /* Контейнер для выравнивания всех карточек в ряд, если нужно */
-.hero-folders-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-/* Стандартизация полароида */
-.polaroid {
-    width: 220px; /* Фиксированная ширина как у видео */
-    background: #fff;
-    padding: 15px 15px 40px 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.polaroid:hover {
-    transform: rotate(0deg) scale(1.02) !important;
-}
-
-.polaroid-img {
-    width: 100%;
-    height: 180px;
-    margin-bottom: 15px;
-    border: 1px solid #f0f0f0;
-    font-weight: bold;
-    color: var(--accent-red);
-}
-
-/* Кнопки внутри папок */
-.text-nav-btn {
-    width: 100%;
-    background: transparent;
-    border: 1px solid var(--accent-red);
-    color: var(--accent-red);
-    padding: 12px;
-    font-family: 'Courier New', monospace;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.text-nav-btn:hover {
-    background: var(--accent-red);
-    color: #fff;
-}
-
-    
 </style>
 
 <script>
@@ -2924,60 +2802,10 @@ const videoCases = {
 };
 
 
-
-
-
-
-    // Объект с контентом для дизайна
-const designCases = {
-    'b2b-site': `<div class="magazine-layout"><h3>Сайт для B2B</h3><p>Контент кейса...</p></div>`,
-    'audio-app': `<div class="magazine-layout"><h3>Приложение экскурсий</h3><p>Контент кейса...</p></div>`,
-    'tg-cards': `<div class="magazine-layout"><h3>TG Карточки</h3><p>Контент кейса...</p></div>`
-};
-
-// Функция показа кейса дизайна
-function showDesignCase(caseId) {
-    const overlay = document.getElementById('case-overlay');
-    const content = document.getElementById('case-content');
-    
-    if (designCases[caseId]) {
-        content.innerHTML = designCases[caseId];
-        overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-// Если у тебя еще нет общей функции переключения папок (folders)
-function showFolder(folderId) {
-    // Скрываем все папки
-    document.getElementById('text-folder').style.display = 'none';
-    document.getElementById('video-folder').style.display = 'none';
-    document.getElementById('design-folder').style.display = 'none';
-    
-    // Показываем нужную
-    document.getElementById(folderId).style.display = 'block';
-    
-    // Скролл к папке
-    document.getElementById(folderId).scrollIntoView({ behavior: 'smooth' });
-}
     
 </script>
 
 <script>
-
-    function toggleDesignFolder() {
-    const folder = document.getElementById('design-folder');
-    const status = document.getElementById('design-folder-status');
-    
-    if (folder.style.display === 'none' || folder.style.display === '') {
-        folder.style.display = 'block';
-        status.innerText = '(ЗАКРЫТЬ СПИСОК РАБОТ)';
-        folder.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    } else {
-        folder.style.display = 'none';
-        status.innerText = '(ОТКРЫТЬ СПИСОК РАБОТ)';
-    }
-}
 
     function showVideoCase(caseId) {
     const display = document.getElementById('video-case-display');
