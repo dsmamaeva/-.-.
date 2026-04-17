@@ -1733,6 +1733,51 @@
         padding-bottom: 150%; /* Чуть меньше на мобилках */
     }
 }
+
+    .blog-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Слева скрин, справа текст */
+    gap: 40px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+.blog-hero-image img {
+    width: 100%;
+    box-shadow: 15px 15px 0px var(--accent-red); /* Фирменный акцент */
+    border: 1px solid #ddd;
+}
+
+.blog-intro-box {
+    background: #fff;
+    padding: 25px;
+    border-left: 3px solid var(--accent-red);
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Сетка кейсов */
+.blog-cases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.blog-grid-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Пропорции 1/4 (25%), 1/4 (25%), 2/4 (50%) */
+.video-slot { flex: 0 0 22%; } 
+.stats-slot { flex: 0 0 22%; }
+.info-slot  { flex: 1; }
+
+@media (max-width: 900px) {
+    .blog-hero { grid-template-columns: 1fr; }
+    .blog-grid-row { flex-direction: column; }
+}
 </style>
 
 <script>
@@ -2998,45 +3043,61 @@ const videoCases = {
             <div class="blog-hero-text">
                 <span class="mono-label">STRATEGY & GROWTH</span>
                 <h2 class="blog-title serif">The Science of<br>Self-Development</h2>
-                <p class="blog-intro">
-                    Здесь я рассказываю о своем блоге: это не просто контент, а экосистема, построенная на методологии системного подхода к жизни. Мы объединяем науку и эстетику.
-                </p>
+                <div class="blog-intro-box">
+                    <p>Здесь я рассказываю о своем блоге: это не просто контент, а экосистема, построенная на методологии системного подхода к жизни. Мы объединяем науку и эстетику.</p>
+                </div>
             </div>
         </header>
 
         <div class="blog-cases-grid">
-            ${[1, 2, 3, 4, 5, 6].map(i => `
-                <div class="blog-grid-row">
-                    <div class="grid-item video-slot">
-                        <span class="grid-tag mono-text">Reels #${i}</span>
-                        <div class="rutube-reels-container">
-                            <iframe 
-                                src="https://rutube.ru/play/embed/ID_ВИДЕО_${i}" 
-                                frameBorder="0" 
-                                allow="clipboard-write; autoplay" 
-                                webkitAllowFullScreen mozallowfullscreen allowFullScreen>
-                            </iframe>
-                        </div>
-                    </div>
 
-                    <div class="grid-item stats-slot">
-                        <span class="grid-tag mono-text">Statistics</span>
-                        <div class="stats-screenshot" onclick="zoomImage('stats_${i}.jpg')">
-                            <img src="stats_${i}.jpg" alt="Статистика кейса ${i}">
-                            <div class="zoom-hint">Увеличить</div>
-                        </div>
-                    </div>
-
-                    <div class="grid-item info-slot">
-                        <span class="grid-tag mono-text">Analysis</span>
-                        <div class="strategy-details">
-                            <h4 class="serif">Кейс: Название ${i}</h4>
-                            <p>Описание того, какая задача стояла перед этим видео и каких результатов удалось достичь. Около 500 символов текста о смыслах, триггерах и архитектуре конкретного выпуска.</p>
-                        </div>
+            <div class="blog-grid-row">
+                <div class="grid-item video-slot">
+                    <span class="grid-tag mono-text">Reels #1</span>
+                    <div class="rutube-reels-container">
+                        <iframe src="https://rutube.ru/play/embed/ID_ВИДЕО_1" frameBorder="0" allowFullScreen></iframe>
                     </div>
                 </div>
-            `).join('')}
-        </div>
+                <div class="grid-item stats-slot">
+                    <span class="grid-tag mono-text">Statistics</span>
+                    <div class="stats-screenshot" onclick="zoomImage('stats_1.jpg')">
+                        <img src="stats_1.jpg" alt="Статистика 1">
+                        <div class="zoom-hint">Увеличить</div>
+                    </div>
+                </div>
+                <div class="grid-item info-slot">
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <div class="strategy-details">
+                        <h4 class="serif">Название кейса 1</h4>
+                        <p>Текст аналитики для первого видео (около 500 знаков)...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-grid-row">
+                <div class="grid-item video-slot">
+                    <span class="grid-tag mono-text">Reels #2</span>
+                    <div class="rutube-reels-container">
+                        <iframe src="https://rutube.ru/play/embed/ID_ВИДЕО_2" frameBorder="0" allowFullScreen></iframe>
+                    </div>
+                </div>
+                <div class="grid-item stats-slot">
+                    <span class="grid-tag mono-text">Statistics</span>
+                    <div class="stats-screenshot" onclick="zoomImage('stats_2.jpg')">
+                        <img src="stats_2.jpg" alt="Статистика 2">
+                        <div class="zoom-hint">Увеличить</div>
+                    </div>
+                </div>
+                <div class="grid-item info-slot">
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <div class="strategy-details">
+                        <h4 class="serif">Название кейса 2</h4>
+                        <p>Текст аналитики для второго видео...</p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
     </div>
 `
 };
