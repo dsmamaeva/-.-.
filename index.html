@@ -1539,6 +1539,131 @@
     .mag-title { font-size: 2.5rem; }
     .mag-project-info { grid-template-columns: 1fr; gap: 10px; }
 }
+
+
+
+
+
+
+
+
+
+    /* --- ЛИЧНЫЙ БЛОГ (СЕТКА 1/4, 1/4, 2/4) --- */
+.blog-case-wrapper {
+    background: var(--bg-cream);
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Верхний блок */
+.blog-hero {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.blog-hero-image {
+    flex: 1;
+    max-width: 450px;
+    box-shadow: 20px 20px 0px var(--accent-red); /* Декоративный сдвиг */
+}
+
+.blog-hero-image img {
+    width: 100%;
+    display: block;
+}
+
+.blog-hero-text { flex: 1; }
+
+.blog-title {
+    font-size: 3rem;
+    color: var(--accent-red);
+    line-height: 1;
+    margin: 15px 0;
+}
+
+/* Сетка */
+.blog-grid {
+    display: flex;
+    gap: 20px;
+    min-height: 450px;
+}
+
+.grid-item {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-tag {
+    color: var(--accent-red);
+    margin-bottom: 20px;
+    display: block;
+    font-weight: bold;
+}
+
+/* Пропорции */
+.video-slot { flex: 1; } /* 1/4 */
+.stats-slot { flex: 1; } /* 1/4 */
+.info-slot  { flex: 2; } /* 2/4 (занимает в два раза больше) */
+
+/* Визуал блоков */
+.reels-mockup {
+    background: #000;
+    flex-grow: 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.reels-mockup video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.stat-card {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px 0;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    color: var(--accent-red);
+    margin: 0;
+}
+
+.stat-label { font-size: 0.7rem; color: #888; }
+
+.strategy-details h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-red);
+}
+
+.strategy-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 0.8rem;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 900px) {
+    .blog-hero { flex-direction: column; }
+    .blog-grid { flex-direction: column; }
+    .blog-hero-image { max-width: 100%; box-shadow: 10px 10px 0px var(--accent-red); }
+}
 </style>
 
 <script>
@@ -2795,10 +2920,66 @@ const videoCases = {
 `,
 
     
-    'personal-blog': `
-        <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Личный блог</h2>
-        <p>Стратегия продвижения личного бренда через вертикальный контент...</p>
-    `
+'personal-blog': `
+    <div class="blog-case-wrapper">
+        <header class="blog-hero">
+            <div class="blog-hero-image">
+                <img src="blog_main_screen.jpg" alt="Мой блог">
+            </div>
+            <div class="blog-hero-text">
+                <span class="mono-label">PERSONAL BRAND</span>
+                <h2 class="blog-title serif">The Science of<br>Self-Development</h2>
+                <p class="blog-intro">
+                    Мой блог — это площадка для тех, кто ценит системный подход. Здесь я упаковываю научные концепции саморазвития в эстетичный лайфстайл-контент. Я выстраиваю стратегию на стыке «Old Money» эстетики и высокой эффективности, создавая комьюнити осознанных и амбициозных людей.
+                </p>
+            </div>
+        </header>
+
+        <div class="blog-grid">
+            <div class="grid-item video-slot">
+                <span class="grid-tag mono-text">Featured Reels</span>
+                <div class="reels-mockup">
+                    <video autoplay muted loop playsinline>
+                        <source src="reels_preview.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="grid-item stats-slot">
+                <span class="grid-tag mono-text">Insights</span>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <p class="stat-value serif">100k+</p>
+                        <p class="stat-label mono-text">охват</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-value serif">15%</p>
+                        <p class="stat-label mono-text">ER (вовлеченность)</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-value serif">8k+</p>
+                        <p class="stat-label mono-text">сохранений</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item info-slot">
+                <span class="grid-tag mono-text">Case Strategy</span>
+                <div class="strategy-details">
+                    <h4 class="serif">Архитектура смыслов</h4>
+                    <p>
+                        В основе стратегии лежит «кайросовое» планирование и привычки, подтвержденные наукой. Я не просто снимаю эстетичные видео — я проектирую путь пользователя от кликбейтного заголовка до глубокого лонгрида в комментариях.
+                    </p>
+                    <ul class="strategy-list mono-text">
+                        <li>— Визуальный код: Parisian minimalism</li>
+                        <li>— Тональность: Экспертная, но эмпатичная</li>
+                        <li>— Инструменты: Figma, CapCut, AI-аналитика</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+`
 };
 
 
