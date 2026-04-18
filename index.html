@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Да рья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -36,34 +36,6 @@
             position: relative;
         }
 
-        /* Стили оверлея */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(253, 250, 245, 0.98); /* Цвет вашего фона */
-    z-index: 1000;
-    overflow-y: auto;
-}
-
-.overlay-content {
-    background: white;
-    width: 90%;
-    max-width: 1100px; /* Увеличили ширину для веера */
-    margin: 50px auto;
-    padding: 40px;
-    position: relative;
-    border-radius: 0; /* Для сохранения журнального стиля */
-}
-
-.close-overlay {
-    position: absolute;
-    right: 20px;
-    top: -20px;
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: var(--text-dark);
-}
 
 .case-main-title {
     font-family: 'Playfair Display', serif;
@@ -2145,10 +2117,77 @@
     .side-panel { border-right: none; padding-right: 0; }
     .main-path { margin-top: 50px; }
 }
+
+
+
+
+
+
+
+
+    /* Базовый оверлей */
+.overlay {
+    display: none; /* Скрыт по умолчанию */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(253, 250, 245, 0.98); 
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.overlay-content {
+    background: white;
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 60px 40px;
+    position: relative;
+    min-height: 80vh;
+}
+
+.close-overlay {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Стили веерного меню внутри оверлея */
+.fan-menu-container {
+    position: relative;
+    height: 500px; /* Важно задать высоту */
+    margin-top: 40px;
+}
+
+.fan-lines-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.fan-item {
+    position: absolute;
+    max-width: 300px;
+}
+/* Позиционирование пунктов (настройте под себя) */
+.fan-item:nth-child(1) { top: 10%; left: 0; }
+.fan-item:nth-child(2) { top: 45%; left: 0; }
+.fan-item:nth-child(3) { top: 80%; left: 0; }
+
+.fan-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+}
+
+@keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+}
 </style>
 
 <script>
-
 
 
 
