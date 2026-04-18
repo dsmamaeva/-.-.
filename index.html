@@ -2714,6 +2714,33 @@
 .container-split {
     align-items: flex-start;
 }
+
+
+    /* 1. Убираем внутренний отступ у самой секции опыта */
+#experience {
+    padding-top: 0 !important;
+}
+
+/* 2. Убираем отступ у колонки, в которой лежит заголовок */
+.experience-column {
+    padding-top: 0 !important;
+}
+
+/* 3. Самое важное: обнуляем отступы самого заголовка */
+.main-path .section-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    line-height: 1.1; /* Немного прижимаем высоту строки */
+}
+
+/* 4. Выравниваем по верхней линии с левой колонкой */
+.container-split {
+    align-items: flex-start !important;
+}
+
+    .main-path .section-title {
+    margin-top: -10px !important; /* Насильно подтягиваем заголовок выше */
+}
 </style>
 
 <script>
