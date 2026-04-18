@@ -535,12 +535,15 @@
         <main class="main-path">
 <section id="experience" class="reveal section-padding">
     <div class="container">
+        
+        <div class="experience-column">
+            
         <h2 class="serif section-title">Профессиональный путь</h2>
         <div class="experience-timeline">
 <div class="exp-item">
     <div class="exp-header">
         <span class="exp-years">декабрь 2025 — апрель 2026</span>
-        <h3 class="serif">РБК (РосБизнесКонсалтинг)</h3>
+        <h3 class="serif company-name">РБК (РосБизнесКонсалтинг)</h3>
         <p class="exp-position">Менеджер проектов</p>
         <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
     </div>
@@ -560,7 +563,7 @@
             <div class="exp-item">
                 <div class="exp-header">
                     <span class="exp-years">ноябрь 2024 — октябрь 2025</span>
-                    <h3 class="serif">Интернет-магазин Meet Market</h3>
+                    <h3 class="serif company-name">Интернет-магазин Meet Market</h3>
                     <p class="exp-position">Креативный менеджер | Ведущий контент-стратег
 </p>
                     <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
@@ -583,7 +586,7 @@
                             <div class="exp-item">
                 <div class="exp-header">
                     <span class="exp-years">сентябрь 2024 — октябрь 2025</span>
-                    <h3 class="serif">Маркетинговое агентство "Manerate"</h3>
+                    <h3 class="serif company-name">Маркетинговое агентство "Manerate"</h3>
                     <p class="exp-position">Senior Копирайтер</p>
                     <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
                 </div>
@@ -608,7 +611,7 @@
                                         <div class="exp-item">
                 <div class="exp-header">
                     <span class="exp-years">апрель 2024 — август 2024</span>
-                    <h3 class="serif">Медиахолдинг «Комсомольская правда» </h3>
+                    <h3 class="serif company-name">Медиахолдинг «Комсомольская правда» </h3>
                     <p class="exp-position">Администратор Telegram-канала | Цифровой редактор</p>
                     <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
                 </div>
@@ -635,7 +638,7 @@
                                                     <div class="exp-item">
                 <div class="exp-header">
                     <span class="exp-years">2024 — 2025</span>
-                    <h3 class="serif">Предыдущая компания</h3>
+                    <h3 class="serif company-name">Предыдущая компания</h3>
                     <p class="exp-position">Должность</p>
                     <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
                 </div>
@@ -649,7 +652,7 @@
                 
         </div>
     </div>
-</section>
+        </div>
 </section>
     
 
@@ -1854,6 +1857,17 @@
 @media (max-width: 900px) {
     .blog-hero { grid-template-columns: 1fr; }
     .blog-grid-row { flex-direction: column; }
+}
+
+    .experience-column {
+    flex: 1.5; /* Опыт чуть шире */
+}
+
+/* Уменьшаем кегль названий компаний */
+.company-name {
+    font-size: 1.3rem !important; /* Уменьшенный размер для гармонии */
+    line-height: 1.2;
+    margin: 5px 0 !important;
 }
 
 
