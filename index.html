@@ -533,46 +533,40 @@
         </aside>
 
         <main class="main-path">
-            <div class="path-wrapper">
-                <svg class="path-svg" viewBox="0 0 100 600" preserveAspectRatio="none">
-                    <path d="M50,0 C100,100 0,200 50,300 C100,400 0,500 50,600" stroke="#8B1A1A" stroke-width="0.3" fill="none" />
-                </svg>
-
-<div class="path-node node-right">
-    <div class="node-content">
-        <span class="path-years">декабрь 2025 — апрель 2026</span>
-        <h4 class="serif">РБК (РосБизнесКонсалтинг)</h4>
-        <span class="path-years">Менеджер проектов</span>
-    </div>
-    <button class="node-circle" onclick="openExpModal()">подробнее</button>
-</div>
-
-                    
-
-<div class="path-node node-left" style="--node-size: 100px; --top-pos: 150px;">
-    <button class="node-circle" onclick="openExpModal()">подробнее</button>
-    <div class="node-content">
-        <span class="path-years">ноябрь 2024 — октябрь 2025</span>
-        <h4 class="serif">Интернет-магазин Meet Market</h4>
-        <span class="path-years">Креативный менеджер (ведущий контент-стратег)
-</span>
-    </div>
-</div>
-
-
-                
-
-                <div class="path-node node-right" style="--node-size: 90px; --top-pos: 450px;">
-                    <div class="node-content">
-                        <span class="path-years">2020</span>
-                        <h4 class="serif">ЛГУ</h4>
+<section id="experience" class="reveal section-padding">
+    <div class="container">
+        <h2 class="serif section-title">Профессиональный путь</h2>
+        <div class="experience-timeline">
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-years">декабрь 2025 — апрель 2026</span>
+                    <h3 class="serif">РБК (РосБизнесКонсалтинг)</h3>
+                    <p class="exp-position">Менеджер проектов</p>
+                    <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
+                </div>
+                <div class="exp-details">
+                    <div class="details-content">
+                        <p>Участие в организации бизнес-дня в Казани, работа с медиа-аналитикой и региональным развитием.</p>
                     </div>
-                    <button class="node-circle">подробнее</button>
                 </div>
             </div>
-        </main>
 
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-years">2024 — 2025</span>
+                    <h3 class="serif">Предыдущая компания</h3>
+                    <p class="exp-position">Должность</p>
+                    <button class="exp-toggle" onclick="toggleDetails(this)">подробнее</button>
+                </div>
+                <div class="exp-details">
+                    <div class="details-content">
+                        <p>Здесь описание того, что ты там делала, твои достижения и ключевые задачи.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 </section>
     
 
@@ -2223,6 +2217,91 @@
 @keyframes fadeIn {
     to { opacity: 1; }
 }
+
+
+
+
+
+
+
+    .experience-timeline {
+    max-width: 800px;
+    margin: 40px auto;
+    position: relative;
+    border-left: 1px solid var(--accent-red); /* Вертикальная линия */
+    padding-left: 30px;
+}
+
+.exp-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Точка на таймлайне */
+.exp-item::before {
+    content: '';
+    position: absolute;
+    left: -35.5px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-red);
+    border-radius: 50%;
+}
+
+.exp-years {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.exp-header h3 {
+    margin: 5px 0;
+    font-size: 1.8rem;
+}
+
+.exp-position {
+    font-style: italic;
+    color: var(--accent-red);
+    margin-bottom: 10px;
+}
+
+.exp-toggle {
+    background: none;
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 5px 15px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: var(--transition);
+}
+
+.exp-toggle:hover {
+    background: var(--accent-red);
+    color: white;
+}
+
+/* Раскрывающееся меню */
+.exp-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1); /* Плавная анимация роста */
+    opacity: 0;
+}
+
+.exp-details.active {
+    max-height: 1000px; /* Достаточно большое значение */
+    transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.details-content {
+    padding: 15px;
+    background: rgba(139, 26, 26, 0.05); /* Легкий фон */
+    border-radius: 4px;
+}
 </style>
 
 <script>
@@ -3694,6 +3773,19 @@ window.addEventListener('click', function(event) {
         closeExpModal();
     }
 });
+
+
+
+    function toggleDetails(button) {
+    const details = button.parentElement.nextElementSibling;
+    details.classList.toggle('active');
+    
+    if (details.classList.contains('active')) {
+        button.textContent = 'свернуть';
+    } else {
+        button.textContent = 'подробнее';
+    }
+}
     
 </script>
 
