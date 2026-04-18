@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Да рья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -2132,10 +2132,20 @@
     margin: 5px 0 !important;
 }
 
+.exp-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* SVG должен занимать всю высоту увеличенного контейнера */
+    z-index: 1;
+}
 
 
-
-
+.experience h2 {
+    margin-top: 20px; /* Регулируй этот параметр для плотности */
+    margin-bottom: 40px;
+}
 
     
 
@@ -2490,11 +2500,9 @@
 /* 4. Контейнер для дерева */
 .exp-tree-container {
     position: relative;
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
     width: 100%;
-    justify-content: flex-end; /* Логотип прижат к правому краю панели */
+    min-height: 450px; /* Увеличь это значение, чтобы элементы не теснились */
+    margin: 40px 0;    /* Добавь внешние отступы сверху и снизу */
 }
 
 /* 5. Удлиненные SVG Линии */
