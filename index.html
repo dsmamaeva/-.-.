@@ -504,7 +504,7 @@
         
         <aside class="side-panel">
             <div class="info-block">
-                <span class="mono-label">ABOUT ME</span>
+                <span class="mono-label">Обо мне</span>
                 <p class="summary-text">Филолог и медиаменеджер с фокусом на системный подход. Исследую науку саморазвития и упаковываю сложные смыслы в эстетичный диджитал-контент.</p>
             </div>
 
@@ -539,14 +539,13 @@
                 </svg>
 
                 <div class="path-node node-right" style="--node-size: 140px; --top-pos: 40px;">
-                    <div class="node-content">
-                        <span class="path-years">декабрь 2025 — апрель 2026</span>
-                        <h4 class="serif">РБК (РосБизнесКонсалтинг) </h4>
-                        <span class="path-years">Менеджер проектов</span>
-                    </div>
-                  <button class="node-circle" onclick="openExpModal()">подробнее</button>
-                </div>
-
+    <div class="node-content">
+        <span class="path-years">декабрь 2025 — апрель 2026</span>
+        <h4 class="serif">РБК (РосБизнесКонсалтинг)</h4>
+        <span class="path-years">Менеджер проектов</span>
+    </div>
+    <button class="node-circle" onclick="openExpModal()">подробнее</button>
+</div>
                 <div class="path-node node-left" style="--node-size: 110px; --top-pos: 240px;">
                     <button class="node-circle">подробнее</button>
                     <div class="node-content">
@@ -1948,15 +1947,43 @@
 .node-right { justify-content: center; padding-left: 100px; }
 .node-left { justify-content: center; padding-right: 100px; }
 
-.node-right .node-circle { margin-left: -50px; } /* Центрирование по линии */
+.node-right .node-circle {
+    position: absolute;
+    right: 0; /* Крепим круг к самому правому краю контейнера */
+    top: 50%;
+    transform: translateY(-50%); /* Центрируем по вертикали относительно текста */
+    z-index: 2; /* Круг поверх всего */
+    margin-right: 0; /* Убираем лишние отступы */
+}
 .node-left .node-circle { margin-right: -50px; }
 
+
+
+    /* Если у вас общие стили для всех нод, добавим специфики для правой */
+.path-node.node-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    min-height: 140px; /* Чтобы круг точно вписался */
+}
+    
 .node-content {
     width: 250px;
 }
 
-.node-right .node-content { text-align: left; padding-left: 30px; }
-.node-left .node-content { text-align: right; padding-right: 30px; }
+.node-right .node-content {
+    text-align: right; /* Текст прижат к правой стороне, но... */
+    padding-right: 160px; /* ...мы добавляем огромный отступ справа, чтобы освободить место под круг */
+    position: relative;
+    z-index: 1; /* Текст будет под кругом, если они вдруг пересекутся */
+}
+.node-left .node-content { 
+    text-align: left;    /* Текст выровнен по левому краю */
+    padding-left: 160px; /* Отступ СЛЕВА, чтобы освободить место под круг */
+    padding-right: 0;    /* Справа отступ не нужен */
+}
 
 .path-years { color: #8B1A1A; font-family: monospace; font-size: 0.8rem; }
 .node-content h4 { margin: 5px 0; font-size: 1.4rem; }
@@ -2041,7 +2068,10 @@
 /* Корректировка позиционирования для правой колонки */
 .node-right { justify-content: flex-start; padding-left: 20%; }
 .node-left { justify-content: flex-start; padding-left: 20%; }
-.node-left .node-circle { order: -1; margin-right: 20px; }
+.node-left .node-circle {
+    left: 0;            /* Круг крепится к левому краю */
+    right: auto;
+}
 
 @media (max-width: 900px) {
     .container-split { flex-direction: column; }
