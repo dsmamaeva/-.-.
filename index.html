@@ -544,19 +544,17 @@
         <h4 class="serif">РБК (РосБизнесКонсалтинг)</h4>
         <span class="path-years">Менеджер проектов</span>
     </div>
-    <button class="node-circle" onclick="openExpModal()">подробнее</button>
+    <button class="node-circle" onclick="openExpModal()">Подробнее</button>
 </div>
 
-                    
+               <div class="path-node node-left" style="--node-size: 100px; --top-pos: 280px;">
+    <div class="node-content">
+        <span class="path-years">ноябрь 2024 — октябрь 2025</span>
+        <h4 class="serif">Meet Market</h4>
+        <span class="path-role">Креативный менеджер (ведущий контент-стратег)</span>
+    </div>
     <button class="node-circle" onclick="openExpModal()">подробнее</button>
 </div>
-                <div class="path-node node-left" style="--node-size: 110px; --top-pos: 240px;">
-                    <button class="node-circle">подробнее</button>
-                    <div class="node-content">
-                        <span class="path-years">2024</span>
-                        <h4 class="serif">КП</h4>
-                    </div>
-                </div>
 
                 <div class="path-node node-right" style="--node-size: 90px; --top-pos: 450px;">
                     <div class="node-content">
@@ -1969,10 +1967,21 @@
 
 /* ЛЕВАЯ НОДА (Текст слева от линии) */
 .node-left .node-content {
-    right: calc(50% + 100px); /* 50% (линия) + 100px отступа */
-    text-align: right;
+    /* Текст будет СЛЕВА от линии */
+    right: calc(50% + 80px); /* 50% (линия) + отступ (меньше, так как круг меньше) */
+    left: auto;
+    text-align: right; /* Текст направлен к линии */
+    width: 320px;
 }
 
+
+    /* Добавим стиль для должности, чтобы она отличалась от годов */
+.path-role {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+    
 /* Оформление текста */
 .path-years { color: #8B1A1A; font-family: monospace; font-size: 0.8rem; font-weight: bold; }
 .node-content h4 { margin: 5px 0; font-size: 1.3rem; font-family: 'Playfair Display', serif; }
@@ -2057,8 +2066,9 @@
 .node-right { justify-content: flex-start; padding-left: 20%; }
 .node-left { justify-content: flex-start; padding-left: 20%; }
 .node-left .node-circle {
-    left: 0;            /* Круг крепится к левому краю */
-    right: auto;
+    width: var(--node-size, 100px);
+    height: var(--node-size, 100px);
+    font-size: 0.6rem; /* Уменьшаем текст внутри маленького круга */
 }
 
 @media (max-width: 900px) {
