@@ -508,8 +508,25 @@
                 <p class="summary-text">Завершаю магистратуру по медиапроизводству, проектируя проекты на стыке текста, визуальной эстетики и данных. Прошла путь от редактора ленты новостей до креативного стратега. Помогаю брендам находить свой голос и системно укреплять позиции на рынке через имиджевые ивенты и мультимедийный сторителлинг. Использую академическую базу для глубокого анализа инфополя и прикладные AI-инструменты для создания вирального контента.</p>
             </div>
 
+            <div class="info-block life-outside-work">
+    <span class="mono-label">BEYOND THE OFFICE</span>
+    <button class="life-toggle" onclick="toggleLife(this)">
+        <span class="plus">+</span> Оживить резюме
+    </button>
+    
+    <div class="life-content">
+        <p>Когда я не проектирую медиа-стратегии, я:</p>
+        <ul class="hobby-list">
+            <li><strong>Пеку:</strong> Укрощаю капризное тесто для бриошей и исследую химию ферментации хлеба.</li>
+            <li><strong>Эстетика:</strong> Охочусь за винтажной мебелью и интегрирую французский минимализм в интерьер.</li>
+            <li><strong>Движение:</strong> Практикую системный подход не только в работе, но и в спорте.</li>
+            <li><strong>Атмосфера:</strong> Собираю плейлисты под настроение Dark Academia и ищу вдохновение в тихих книжных.</li>
+        </ul>
+    </div>
+</div>
+
             <div class="info-block">
-                <span class="mono-label">EDUCATION</span>
+                <span class="mono-label">Образование</span>
                 <ul class="education-list">
                     <li>
                         <strong>HSE University</strong>
@@ -2749,6 +2766,74 @@
     .main-path .section-title {
     margin-top: -10px !important; /* Насильно подтягиваем заголовок выше */
 }
+
+
+    /* Кнопка */
+.life-toggle {
+    background: none;
+    border: 1px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 8px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.life-toggle:hover {
+    background: var(--accent-red);
+    color: white;
+}
+
+.life-toggle .plus {
+    font-size: 1.2rem;
+    transition: transform 0.4s ease;
+}
+
+.life-toggle.active .plus {
+    transform: rotate(45deg);
+}
+
+/* Контент (скрыт по умолчанию) */
+.life-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.life-content.show {
+    max-height: 400px; /* Достаточно для текста */
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.hobby-list {
+    list-style: none;
+    padding: 0;
+}
+
+.hobby-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.hobby-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+}
 </style>
 
 <script>
@@ -4231,6 +4316,19 @@ window.addEventListener('click', function(event) {
         button.textContent = 'свернуть';
     } else {
         button.textContent = 'подробнее';
+    }
+}
+
+
+    function toggleLife(btn) {
+    const content = btn.nextElementSibling;
+    btn.classList.toggle('active');
+    content.classList.toggle('show');
+    
+    if (content.classList.contains('show')) {
+        btn.innerHTML = '<span class="plus">+</span> Свернуть';
+    } else {
+        btn.innerHTML = '<span class="plus">+</span> Оживить резюме';
     }
 }
     
