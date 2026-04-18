@@ -4374,6 +4374,26 @@ window.addEventListener('click', function(event) {
         btn.innerHTML = '<span class="plus">+</span> Оживить резюме';
     }
 }
+
+
+
+
+
+
+    function toggleDesignFolder() {
+    const designContent = document.getElementById('design-portfolio-content');
+    const statusText = document.getElementById('design-folder-status');
+    
+    if (designContent.style.display === "none" || designContent.style.display === "") {
+        designContent.style.display = "block";
+        statusText.innerText = "(ЗАКРЫТЬ СПИСОК РАБОТ)";
+        // Плавная прокрутка к контенту
+        designContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        designContent.style.display = "none";
+        statusText.innerText = "(ОТКРЫТЬ СПИСОК РАБОТ)";
+    }
+}
     
 </script>
 
