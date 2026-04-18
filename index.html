@@ -785,6 +785,11 @@
 
 
 
+            <div class="experience-summary">
+    <span class="summary-total">Общий стаж: ~3 года и 8 месяцев</span>
+    <p class="summary-note">* расчет произведен с учетом исключения пересекающихся периодов (чистое календарное время)</p>
+</div>
+
             
             </div>     
         </div>
@@ -2646,6 +2651,32 @@
     font-weight: 600;
     color: var(--text-dark);
     white-space: nowrap;
+}
+
+
+    .experience-summary {
+    margin-top: -15px; /* Подтягиваем ближе к графику */
+    margin-bottom: 40px;
+    padding-left: 5px;
+    border-left: 2px solid var(--accent-red); /* Тонкий акцент слева */
+    padding-left: 15px;
+}
+
+.summary-total {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.summary-note {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    line-height: 1.4;
 }
 </style>
 
