@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Да рья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -51,10 +51,13 @@
 }
 
 .overlay-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+    background: white;
+    width: 90%;
+    max-width: 1100px; /* Увеличили ширину для веера */
+    margin: 50px auto;
+    padding: 40px;
     position: relative;
+    border-radius: 0; /* Для сохранения журнального стиля */
 }
 
 .close-overlay {
@@ -630,12 +633,17 @@
                 </div>
 
                 <div class="path-node node-left" style="--node-size: 110px; --top-pos: 240px;">
-                    <button class="node-circle">подробнее</button>
+                    <button class="node-circle" onclick="openPathDetails(1)">подробнее</button>
                     <div class="node-content">
                         <span class="path-years">2024</span>
                         <h4 class="serif">КП</h4>
                     </div>
                 </div>
+
+
+             
+
+
 
                 <div class="path-node node-right" style="--node-size: 90px; --top-pos: 450px;">
                     <div class="node-content">
@@ -2138,6 +2146,20 @@
 
 
 
+
+
+
+    <div id="case-overlay" class="overlay" onclick="closeCase()">
+    <div class="overlay-content">
+        <div id="case-content"></div> <button class="close-btn" onclick="closeCase()">✕</button>
+    </div>
+</div>
+
+
+
+
+    
+
 function zoomImage(src) {
     // Используем твой механизм оверлея
     const overlay = document.getElementById('case-overlay');
@@ -3582,11 +3604,6 @@ const videoCases = {
 
 
 
-    function openPathDetails(stepId) {
-    console.log("Открываем детали для этапа:", stepId);
-    // Здесь мы позже настроим всплывающие окна или переход к кейсам
-    alert("Детали этапа " + stepId + " будут настроены позже.");
-}
     
 </script>
 
@@ -3726,12 +3743,14 @@ function openPathDetails(caseId) {
     const overlay = document.getElementById('case-overlay');
     const content = document.getElementById('case-content');
     
+    // Проверяем, существует ли такой ключ в нашем объекте pathCases
     if (pathCases[caseId]) {
-        content.innerHTML = pathCases[caseId];
-        overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        content.innerHTML = pathCases[caseId]; // Вставляем верстку веерного меню
+        overlay.style.display = 'block';       // Показываем оверлей
+        document.body.style.overflow = 'hidden'; // Запрещаем скролл основной страницы
     } else {
-        console.error("Кейс не найден:", caseId);
+        // Если передали цифру 1 или другой ID, которого нет в pathCases
+        console.error("Кейс не найден в объекте pathCases:", caseId);
     }
 }
     </script>
