@@ -847,7 +847,7 @@
 
 
 
-    <div class="polaroid" style="transform: rotate(2deg); cursor: pointer;" onclick="toggleDesignFolder()">
+<div class="polaroid" style="transform: rotate(2deg); cursor: pointer;" onclick="toggleDesignFolder()">
     <div class="polaroid-img">ДИЗАЙН</div>
     <div class="polaroid-content">
         <p class="hero-subtitle">UI/UX, b2b-сайты, упаковка смыслов</p>
@@ -855,29 +855,13 @@
     </div>
 </div>
 
-<div id="design-portfolio-content" style="display: none; margin-top: 40px;">
-    <div class="portfolio-grid">
-        <div class="portfolio-item">
-            <div class="item-info">
-                <h3>Сайт для B2B сегмента</h3>
-                <p>Проектирование пользовательских сценариев и визуальной концепции для корпоративного сектора.</p>
-                <a href="#" class="view-project">подробнее →</a>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-info">
-                <h3>Приложение для аудиоэкскурсий</h3>
-                <p>Разработка интерфейса (UI/UX) и интуитивной навигации для городских прогулок.</p>
-                <a href="#" class="view-project">подробнее →</a>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <div class="item-info">
-                <h3>Карточки для Meet Market</h3>
-                <p>Дизайн графических материалов для маркетплейса: композиция и типографика.</p>
-                <a href="#" class="view-project">подробнее →</a>
-            </div>
-        </div>
+<div id="design-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
+    <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите кейс:</h3>
+    
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto;">
+        <button class="text-nav-btn" onclick="showDesignCase('b2b-site')">Сайт для B2B сегмента</button>
+        <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Приложение для аудиоэкскурсий</button>
+        <button class="text-nav-btn" onclick="showDesignCase('market-cards')">Карточки для Meet Market</button>
     </div>
 </div>
         
@@ -4380,19 +4364,26 @@ window.addEventListener('click', function(event) {
 
 
 
-    function toggleDesignFolder() {
-    const designContent = document.getElementById('design-portfolio-content');
+function toggleDesignFolder() {
+    const designFolder = document.getElementById('design-folder');
     const statusText = document.getElementById('design-folder-status');
     
-    if (designContent.style.display === "none" || designContent.style.display === "") {
-        designContent.style.display = "block";
-        statusText.innerText = "(ЗАКРЫТЬ СПИСОК РАБОТ)";
-        // Плавная прокрутка к контенту
-        designContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (designFolder.style.display === "none" || designFolder.style.display === "") {
+        designFolder.style.display = "block";
+        statusText.innerText = "(ЗАКРЫТЬ СПИСОК)";
+        // Плавный скролл к открывшейся папке
+        designFolder.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-        designContent.style.display = "none";
+        designFolder.style.display = "none";
         statusText.innerText = "(ОТКРЫТЬ СПИСОК РАБОТ)";
     }
+}
+
+// Заглушка для открытия конкретных кейсов дизайна (если планируешь делать оверлеи)
+function showDesignCase(caseId) {
+    console.log("Открываем кейс дизайна:", caseId);
+    // Здесь можно вызвать функцию открытия оверлея, аналогичную openCase()
+    openCase(caseId); 
 }
     
 </script>
