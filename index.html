@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Да рья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -2052,97 +2052,114 @@
 
 
     /* Уникальный модальный блок для опыта */
+/* Панель, которая накладывается слева */
 .exp-modal {
     display: none;
     position: fixed;
-    z-index: 2000; /* Выше обычного оверлея */
+    z-index: 3000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #fdfaf5; /* Твой --bg-cream */
-    overflow-y: auto;
+    background-color: rgba(26, 26, 26, 0.05); /* Легкое затемнение фона */
+    backdrop-filter: blur(2px);
 }
 
-.exp-modal-content {
-    max-width: 1000px; /* Чуть шире для размаха линий */
-    margin: 60px auto;
+.exp-modal-side-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 600px; /* Занимает только левую часть */
+    height: 100%;
+    background-color: var(--bg-cream);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
     padding: 60px 40px;
-    display: flex; /* Заголовок слева, контент справа */
-    gap: 50px;
+    animation: slideRight 0.6s ease-out;
+}
+
+@keyframes slideRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.exp-tree-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 20px;
+}
+
+/* Заголовок в кружке */
+.exp-root {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.exp-circle-title {
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--accent-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-red);
+    background: var(--bg-cream);
+    font-size: 1.2rem;
+}
+
+/* SVG Линии */
+.exp-lines-svg {
+    position: absolute;
+    left: 100px; /* Начинается от кружка */
+    width: 150px; /* Длина разветвления */
+    height: 400px;
+    fill: none;
+    stroke: var(--accent-red);
+    stroke-width: 0.8;
+}
+
+.tree-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawPath 1.5s ease-out forwards;
+}
+
+@keyframes drawPath {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Список пунктов */
+.exp-items-list {
+    margin-left: 170px; /* Отступ с учетом ширины SVG */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+}
+
+.exp-item-node {
+    max-width: 300px;
+    position: relative;
+}
+
+.exp-item-node p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-dark);
 }
 
 .exp-close {
-    position: absolute;
-    right: 20px;
-    top: 0;
-    font-size: 40px;
     cursor: pointer;
-    color: #8b1a1a; /* Твой --accent-red */
-}
-
-.exp-main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-size: 30px;
     color: var(--accent-red);
-    writing-mode: vertical-lr; /* Заголовок вертикально, если как на некоторых макетах, или просто left-align */
-    transform: rotate(180deg);
-    text-align: right;
-    margin: 0;
-    line-height: 1;
-}
-
-.exp-lines-grid {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    margin-top: 20px;
-}
-
-.exp-item {
-    position: relative;
-    padding-left: 0; /* Убираем стандартный отступ */
-    display: flex;
-    flex-direction: column;
-}
-
-.red-graphic-line {
-    position: relative;
-    width: 100%; /* Линия на всю ширину контейнера */
-    height: 1px;
-    background-color: var(--accent-red);
-    margin-bottom: 15px;
-}
-
-.red-graphic-line::before {
-    content: '';
     position: absolute;
-    left: 0;
-    top: -3px;
-    width: 7px;
-    height: 7px;
-    background-color: var(--accent-red);
-    border-radius: 50%;
-}
-    .exp-item:nth-child(1) .red-graphic-line { width: 80%; }
-.exp-item:nth-child(2) .red-graphic-line { width: 100%; }
-.exp-item:nth-child(3) .red-graphic-line { width: 60%; }
-
-.exp-item p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 500px; /* Чтобы текст не растягивался на всю длину линии */
-    align-self: flex-start;
-    font-weight: 300;
-}
-
-@keyframes slideInLine {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    top: 20px;
+    right: 30px;
 }
 </style>
 
@@ -3674,25 +3691,31 @@ window.addEventListener('click', function(event) {
 
 
 <div id="exp-details-modal" class="exp-modal">
-    <span class="exp-close" onclick="closeExpModal()" style="position:fixed; right:40px; top:20px;">&times;</span>
-
-    <div class="exp-modal-content">
-        <h2 class="exp-main-title">РБК</h2>
+    <div class="exp-modal-side-content">
+        <span class="exp-close" onclick="closeExpModal()">&times;</span>
         
-        <div class="exp-lines-grid">
-            <div class="exp-item">
-                <div class="red-graphic-line"></div>
-                <p>Координирование проекта «Бизнес-день в Казани 2026». Обеспечение коммуникации с участниками и привлечение пула технологических и бизнес-партнеров.</p>
+        <div class="exp-tree-container">
+            <div class="exp-root">
+                <div class="root-dot"></div>
+                <h2 class="exp-circle-title">РБК</h2>
             </div>
-            
-            <div class="exp-item">
-                <div class="red-graphic-line"></div>
-                <p>Глубокое исследование экосистемы холдинга РБК для разработки модели регионального развития и создания совместных медиапродуктов.</p>
-            </div>
-            
-            <div class="exp-item">
-                <div class="red-graphic-line"></div>
-                <p>Подготовка экспертных материалов и рерайт сложных новостных сводок на основе анализа первичной документации и данных мониторинга инфополя.</p>
+
+            <svg class="exp-lines-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="tree-path path-1" d="M0,50 C30,50 40,20 100,20" />
+                <path class="tree-path path-2" d="M0,50 C50,50 50,50 100,50" />
+                <path class="tree-path path-3" d="M0,50 C30,50 40,80 100,80" />
+            </svg>
+
+            <div class="exp-items-list">
+                <div class="exp-item-node">
+                    <p>Координирование проекта «Бизнес-день в Казани 2026». Обеспечение коммуникации с участниками и привлечение партнеров.</p>
+                </div>
+                <div class="exp-item-node">
+                    <p>Глубокое исследование экосистемы холдинга РБК для разработки модели регионального развития.</p>
+                </div>
+                <div class="exp-item-node">
+                    <p>Подготовка экспертных материалов и рерайт сложных новостных сводок на основе данных мониторинга.</p>
+                </div>
             </div>
         </div>
     </div>
