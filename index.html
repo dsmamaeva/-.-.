@@ -847,17 +847,18 @@
 
 
 
-<div class="polaroid" style="transform: rotate(2deg); cursor: pointer;" onclick="toggleDesignFolder()">
+<div class="polaroid" style="transform: rotate(-2deg); cursor: pointer;" onclick="toggleDesignFolder()">
     <div class="polaroid-img">ДИЗАЙН</div>
-    <div class="polaroid-content">
         <p class="hero-subtitle">UI/UX, b2b-сайты, упаковка смыслов</p>
         <span id="design-folder-status" style="font-size: 0.7rem; color: var(--accent-red); font-weight: bold;">(ОТКРЫТЬ СПИСОК РАБОТ)</span>
     </div>
 </div>
 
-<div id="design-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px 0;"> <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите кейс:</h3>
-    
-    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto; padding: 0 20px;">
+        
+<div id="design-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
+    <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите кейс:</h3>
+
+     <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto;">
         <button class="text-nav-btn" onclick="showDesignCase('b2b-site')">Сайт для B2B сегмента</button>
         <button class="text-nav-btn" onclick="showDesignCase('audio-app')">Приложение для аудиоэкскурсий</button>
         <button class="text-nav-btn" onclick="showDesignCase('market-cards')">Карточки для Meet Market</button>
@@ -870,7 +871,7 @@
 </div>
         
 </div>
-    </div>
+
 
     <div id="text-folder" style="display: none; margin-top: 50px; background: #fff; border: 1px solid #eee; padding: 40px;">
         <h3 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; color: var(--accent-red);">Выберите категорию материала:</h3>
