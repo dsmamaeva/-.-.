@@ -549,13 +549,18 @@
 
                     
 
-                <div class="path-node node-left" style="--node-size: 110px; --top-pos: 240px;">
-                    <button class="node-circle">подробнее</button>
-                    <div class="node-content">
-                        <span class="path-years">2024</span>
-                        <h4 class="serif">КП</h4>
-                    </div>
-                </div>
+<div class="path-node node-left" style="--node-size: 100px; --top-pos: 150px;">
+    <button class="node-circle" onclick="openExpModal()">подробнее</button>
+    <div class="node-content">
+        <span class="path-years">ноябрь 2024 — октябрь 2025</span>
+        <h4 class="serif">Интернет-магазин Meet Market</h4>
+        <span class="path-years">Креативный менеджер (ведущий контент-стратег)
+</span>
+    </div>
+</div>
+
+
+                
 
                 <div class="path-node node-right" style="--node-size: 90px; --top-pos: 450px;">
                     <div class="node-content">
@@ -1821,6 +1826,21 @@
 /* Чередование сторон */
 .path-step.left { justify-content: flex-end; padding-right: 50%; }
 .path-step.right { justify-content: flex-start; padding-left: 50%; }
+
+
+    .path-node.node-left {
+    flex-direction: row; /* Кнопка слева, текст справа */
+    left: 0;
+    transform: translateX(-50%); /* Центрирование круга по линии */
+    top: var(--top-pos, 0);
+}
+
+.path-node.node-right {
+    flex-direction: row-reverse; /* Текст слева, кнопка справа */
+    right: 0;
+    transform: translateX(50%);
+    top: var(--top-pos, 0);
+}
 
 /* Круг-кнопка */
 .path-circle {
