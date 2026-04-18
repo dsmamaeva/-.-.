@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Да рья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -543,7 +543,7 @@
                         <span class="path-years">2026</span>
                         <h4 class="serif">РБК</h4>
                     </div>
-                    <button class="node-circle">подробнее</button>
+                  <button class="node-circle" onclick="openExpModal()">подробнее</button>
                 </div>
 
                 <div class="path-node node-left" style="--node-size: 110px; --top-pos: 240px;">
@@ -2047,6 +2047,95 @@
     .side-panel { border-right: none; padding-right: 0; }
     .main-path { margin-top: 50px; }
 }
+
+
+
+
+    /* Уникальный модальный блок для опыта */
+.exp-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000; /* Выше обычного оверлея */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fdfaf5; /* Твой --bg-cream */
+    overflow-y: auto;
+}
+
+.exp-modal-content {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.exp-close {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 40px;
+    cursor: pointer;
+    color: #8b1a1a; /* Твой --accent-red */
+}
+
+.exp-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #8b1a1a;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.exp-lines-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.exp-item {
+    position: relative;
+    padding-left: 80px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLine 0.6s forwards ease-out;
+}
+
+/* Красная линия с точкой из макета */
+.red-graphic-line {
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 60px;
+    height: 1.5px;
+    background-color: #8b1a1a;
+}
+
+.red-graphic-line::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: -3px;
+    width: 8px;
+    height: 8px;
+    background-color: #8b1a1a;
+    border-radius: 50%;
+}
+
+.exp-item p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #1a1a1a;
+    font-weight: 300;
+}
+
+@keyframes slideInLine {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 </style>
 
 <script>
@@ -3499,11 +3588,25 @@ const videoCases = {
 
 
 
-    function openPathDetails(stepId) {
-    console.log("Открываем детали для этапа:", stepId);
-    // Здесь мы позже настроим всплывающие окна или переход к кейсам
-    alert("Детали этапа " + stepId + " будут настроены позже.");
+
+
+    function openExpModal() {
+    document.getElementById('exp-details-modal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
 }
+
+function closeExpModal() {
+    document.getElementById('exp-details-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Дополнение к твоему обработчику клика вне окна
+window.addEventListener('click', function(event) {
+    const expModal = document.getElementById('exp-details-modal');
+    if (event.target == expModal) {
+        closeExpModal();
+    }
+});
     
 </script>
 
@@ -3562,7 +3665,33 @@ const videoCases = {
     </footer>
 
 
-
+<div id="exp-details-modal" class="exp-modal">
+    <div class="exp-modal-content">
+        <span class="exp-close" onclick="closeExpModal()">&times;</span>
+        
+        <div class="exp-visual-container">
+            <h2 class="exp-main-title">РБК</h2>
+            <div class="exp-lines-grid">
+                
+                <div class="exp-item">
+                    <div class="red-graphic-line"></div>
+                    <p>Координирование проекта «Бизнес-день в Казани 2026». Обеспечение коммуникации с участниками и привлечение пула технологических и бизнес-партнеров.</p>
+                </div>
+                
+                <div class="exp-item">
+                    <div class="red-graphic-line"></div>
+                    <p>Глубокое исследование экосистемы холдинга РБК для разработки модели регионального развития и создания совместных медиапродуктов.</p>
+                </div>
+                
+                <div class="exp-item">
+                    <div class="red-graphic-line"></div>
+                    <p>Подготовка экспертных материалов и рерайт сложных новостных сводок на основе анализа первичной документации и данных мониторинга инфополя.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
         
     <script>
