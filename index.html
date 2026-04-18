@@ -4388,7 +4388,6 @@ function showDesignCase(caseId) {
     const display = document.getElementById('design-display');
     const content = document.getElementById('design-content');
     
-    // Объект с данными кейсов (можно дополнять)
     const cases = {
         'b2b-site': `
             <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-red); margin-bottom: 20px;">Сайт для B2B сегмента</h2>
@@ -4408,7 +4407,7 @@ function showDesignCase(caseId) {
         content.innerHTML = cases[caseId];
         display.style.display = 'block';
         
-        // Плавный скролл к началу контента
+        // Плавный скролл к началу текста кейса, чтобы пользователю не пришлось крутить вниз
         display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
