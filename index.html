@@ -3463,6 +3463,69 @@
     background: #fdfdfd;
     border-left: 8px solid var(--accent-red);
 }
+
+    .folder-content {
+    width: 100%;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    margin-top: 20px;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.folder-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.texts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.text-item {
+    padding: 25px;
+    background: white;
+    border: 1px solid #f0f0f0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.text-item:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.text-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-red);
+    font-weight: bold;
+}
+
+.text-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.text-item p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 </style>
 
 <script>
@@ -5218,8 +5281,33 @@ function toggleEventFolder() {
 }
 
 function toggleCommFolder() {
-    // Логика для Текстов
+    const folder = document.getElementById('text-folder');
+    const status = document.getElementById('comm-status');
+
+    if (folder.style.display === 'none' || folder.style.display === '') {
+        // Закрываем другие папки, если нужно (опционально)
+        closeAllFolders(); 
+        
+        folder.style.display = 'block';
+        folder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (status) status.innerText = '(ЗАКРЫТЬ СПИСОК)';
+    } else {
+        folder.style.display = 'none';
+        if (status) status.innerText = '(СМОТРЕТЬ ТЕКСТЫ)';
+    }
 }
+
+// Вспомогательная функция, чтобы папки не накладывались друг на друга
+function closeAllFolders() {
+    const folders = ['media-folder', 'ai-folder', 'event-folder', 'text-folder'];
+    folders.forEach(id => {
+        const f = document.getElementById(id);
+        if (f) f.style.display = 'none';
+    });
+}
+
+
+    
 </script>
 
 <script>
