@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Да рья Мамаева | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -5508,29 +5508,15 @@ if (designData[caseId]) {
 
     
 function toggleMediaFolder() {
-    // Находим основной контейнер папки и элемент статуса на карточке
     const folder = document.getElementById('media-folder');
     const status = document.getElementById('media-status');
-
-    // Проверяем, скрыта ли папка в данный момент
     if (folder.style.display === 'none' || folder.style.display === '') {
-        
-        // Сначала закрываем все остальные папки, чтобы контент не накладывался
-        closeAllFolders(); 
-        
-        // Показываем нужную папку
         folder.style.display = 'block';
-        
-        // Плавно прокручиваем страницу к началу открытого кейса
-        folder.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        
-        // Меняем текст на кнопке в карточке портфолио
-        if (status) status.innerText = '(ЗАКРЫТЬ)';
-        
+        status.innerText = '(ЗАКРЫТЬ)';
+        folder.scrollIntoView({ behavior: 'smooth' });
     } else {
-        // Если папка уже открыта — скрываем её
         folder.style.display = 'none';
-        if (status) status.innerText = '(ОТКРЫТЬ)';
+        status.innerText = '(ОТКРЫТЬ)';
     }
 }
     
@@ -5552,38 +5538,41 @@ function closeAllFolders() {
 }
 
 function toggleAiFolder() {
-    const folder = document.getElementById('design-folder');
-    const status = document.getElementById('ai-status');
-
+    const folder = document.getElementById('design-folder'); // Убедитесь, что ID совпадает
+    const status = document.getElementById('design-folder-status');
     if (folder.style.display === 'none' || folder.style.display === '') {
-        closeAllFolders(); // Закрываем другие открытые разделы
         folder.style.display = 'block';
-        folder.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (status) status.innerText = '(ЗАКРЫТЬ)';
+        status.innerText = '(ЗАКРЫТЬ)';
+        folder.scrollIntoView({ behavior: 'smooth' });
     } else {
         folder.style.display = 'none';
-        if (status) status.innerText = '(ОТКРЫТЬ)';
+        status.innerText = '(ОТКРЫТЬ)';
     }
 }
 
 function toggleEventFolder() {
-    // Логика для Ивентов
+    const folder = document.getElementById('event-folder');
+    const status = document.getElementById('event-status');
+    if (folder.style.display === 'none' || folder.style.display === '') {
+        folder.style.display = 'block';
+        status.innerText = '(ЗАКРЫТЬ)';
+        folder.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        folder.style.display = 'none';
+        status.innerText = '(ОТКРЫТЬ)';
+    }
 }
 
 function toggleCommFolder() {
-    const folder = document.getElementById('text-folder');
-    const status = document.getElementById('comm-status');
-
+    const folder = document.getElementById('text-folder'); // или 'comm-folder', проверьте ID в HTML
+    const status = document.getElementById('folder-status');
     if (folder.style.display === 'none' || folder.style.display === '') {
-        // Закрываем другие папки, если нужно (опционально)
-        closeAllFolders(); 
-        
         folder.style.display = 'block';
-        folder.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (status) status.innerText = '(ЗАКРЫТЬ СПИСОК)';
+        status.innerText = '(ЗАКРЫТЬ)';
+        folder.scrollIntoView({ behavior: 'smooth' });
     } else {
         folder.style.display = 'none';
-        if (status) status.innerText = '(СМОТРЕТЬ ТЕКСТЫ)';
+        status.innerText = '(ОТКРЫТЬ)';
     }
 }
 
