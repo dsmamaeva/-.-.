@@ -1184,6 +1184,51 @@
 
 
 
+
+<div onclick="toggleEventFolder()" style="cursor: pointer; user-select: none;">
+    <h3>📂 АРХИТЕКТУРА СОБЫТИЙ <span id="event-status">(ОТКРЫТЬ)</span></h3>
+</div>
+
+<div id="event-folder" style="display: none; padding-left: 20px; border-left: 1px dashed #ccc;">
+    
+    <div class="case-study" style="margin-bottom: 30px;">
+        <h4>🍷 КЕЙС: Летние винные сезоны (Simple Wine)</h4>
+        <p><strong>Концепция:</strong> Экосистема мероприятий «Искусство, вино и Петербург», превращающая бар в культурный хаб.</p>
+        <ul>
+            <li><strong>Архитектура:</strong> 6 тематических блоков (Кино, Литература, Живопись) + финальный фестиваль. Интеграция с «Невидимым театром» и «Подписными изданиями».</li>
+            <li><strong>Digital-механика:</strong> Геймификация лояльности — обязательная конверсия посетителей в пользователей приложения Simple (баллы за квизы, посещения и чеки).</li>
+            <li><strong>Метрики:</strong> 
+                <ul>
+                    <li>Охват: 200-300 участников на каждое событие (CA: 25-55, доход выше среднего).</li>
+                    <li>LTV: Рост среднего чека в дни ивентов за счет системы накопления баллов в приложении.</li>
+                    <li>Community: Сформирована база лояльных клиентов через спецпроект «Студенческие среды».</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <hr style="border: 0.5px solid #eee;">
+
+    <div class="case-study" style="margin-top: 20px;">
+        <h4>📈 КЕЙС: RBK Business Day (Kazan)</h4>
+        <p><strong>Концепция:</strong> Проектирование коммуникационной платформы для G2B и B2B диалога на федеральном уровне.</p>
+        <ul>
+            <li><strong>Архитектура:</strong> Разработка структуры деловой программы: от панельных дискуссий с топ-менеджментом до закрытых нетворкинг-сессий.</li>
+            <li><strong>Управление:</strong> Координация кросс-функциональной команды, спикер-менеджмент (власть, эксперты, бизнес) и контроль технического продакшена.</li>
+            <li><strong>Метрики:</strong> 
+                <ul>
+                    <li>Масштаб: 400+ делегатов (C-level руководители и госсектор).</li>
+                    <li>Media Reach: Обеспечение охвата > 1,5 млн контактов через каналы РБК и партнерские СМИ.</li>
+                    <li>KPI: 100% выполнение обязательств перед спонсорами по представленности и интеграциям.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+            
+
+            
+
 <div id="media-folder" class="folder-content" style="display: none;">
     <div class="folder-inside">
         <div class="folder-header">
@@ -5600,7 +5645,18 @@ function toggleAiFolder() {
 }
 
 function toggleEventFolder() {
-    // Логика для Ивентов
+    const folder = document.getElementById('event-folder');
+    const status = document.getElementById('event-status');
+
+    if (folder.style.display === 'none' || folder.style.display === '') {
+        closeAllFolders(); // Закрываем другие открытые разделы, если функция определена
+        folder.style.display = 'block';
+        folder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (status) status.innerText = '(ЗАКРЫТЬ)';
+    } else {
+        folder.style.display = 'none';
+        if (status) status.innerText = '(ОТКРЫТЬ)';
+    }
 }
 
 function toggleCommFolder() {
