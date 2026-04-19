@@ -155,29 +155,27 @@ body {
 
 .hero-container {
     max-width: 1300px;
-    margin: 20px auto;
-    background-color: var(--bg-cream); /* Цвет самой карточки */
-    border: 1px solid #efe8da; /* Очень тонкая рамка, чтобы подчеркнуть форму */
-    border-radius: 50px; 
-    overflow: hidden;
-    position: relative;
+    margin: 0 auto 60px auto; /* Убрали отступ сверху страницы, если нужно прижать к самому верху браузера */
+    background-color: var(--bg-cream);
+    border-radius: 50px;
+    overflow: hidden; /* Критично: обрезает фото по закругленным краям */
     display: flex;
-    min-height: 80vh;
+    min-height: 85vh;
     box-shadow: 0 15px 45px var(--card-shadow);
-    color: var(--text-dark);
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.3fr; /* Чуть увеличили правую часть для меню */
     width: 100%;
+    /* УБРАЛИ padding здесь, чтобы фото прилипло к краям */
 }
 
 /* --- ПРАВАЯ ЧАСТЬ: МЕНЮ --- */
 .hero-nav {
-    padding: 50px 60px;
+    padding: 60px 50px 50px 50px; /* Отступы только для текстовой части */
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три колонки в ряд */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     align-content: start;
 }
@@ -251,13 +249,17 @@ body {
 
 /* --- ЛЕВАЯ ЧАСТЬ: ФОТО --- */
 .hero-photo {
-    background-color: #f7f2e8; 
+    margin: 0;
+    padding: 0;
+    line-height: 0; /* Убирает микро-отступ снизу картинки */
+    display: flex;
 }
 
 .hero-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Фото заполнит всю левую область без щелей */
+    display: block;
 }
 
 /* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
