@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дарья Мамаева. | Портфолио</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         
 :root {
-    --bg-cream: #fdfaf5; /* Тот самый кремовый цвет из вашего исходника */
+    --bg-cream: #fdfaf5;
     --accent-red: #8b1a1a;
     --text-dark: #333;
-    --card-shadow: rgba(139, 26, 26, 0.05); /* Легкая тень в тон акценту */
-    --accent-font: 'Playfair Display', serif;
-    --body-font: 'Inter', sans-serif;
+    /* Новые шрифты */
+    --font-numbers: 'Cormorant Garamond', serif;
+    --font-main: 'Montserrat', sans-serif;
 }
 
         * {
@@ -176,30 +175,27 @@ body {
 
 /* --- ПРАВАЯ ЧАСТЬ: МЕНЮ --- */
 .hero-nav {
-    padding: 60px 70px; /* Увеличили верхний отступ */
+    padding: 50px 60px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px; /* Чуть увеличили расстояние между колонками */
-    align-content: start; /* Выравнивание по верхнему краю, а не по центру */
+    grid-template-columns: repeat(3, 1fr); /* Три колонки в ряд */
+    gap: 30px;
+    align-content: start;
 }
 
 .user-profile {
-    grid-column: span 2;
-    margin-bottom: 40px; /* Увеличили отступ до кнопок */
-    border-bottom: 2px solid var(--accent-red);
-    padding-bottom: 15px;
-    height: fit-content; /* Чтобы блок не растягивался лишнего */
+    grid-column: span 3; /* Растягиваем имя на все 3 колонки */
+    margin-bottom: 40px;
+    border-bottom: 1.5px solid var(--accent-red);
+    padding-bottom: 20px;
 }
 
 .user-name {
-    font-family: var(--accent-font);
+    font-family: var(--font-numbers);
     font-style: italic;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
     font-weight: normal;
     text-transform: lowercase;
-    margin-bottom: 5px;
     color: var(--text-dark);
-    line-height: 1.1;
 }
 
 .user-role {
@@ -215,9 +211,14 @@ body {
     text-decoration: none;
     color: var(--text-dark);
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Выравнивание контента внутри кнопки вверх */
+}
+
+.nav-number {
+    font-family: var(--font-numbers);
+    font-style: italic;
+    font-size: 1.8rem; /* Чуть крупнее для акцента */
+    color: var(--text-dark);
+    display: block;
 }
 
 .nav-item:hover { 
@@ -225,32 +226,27 @@ body {
     transform: translateX(4px);
 }
 
-.nav-number {
-    font-family: var(--accent-font);
-    font-style: italic;
-    font-size: 1.4rem; /* Еще чуть уменьшили для изящности */
-    display: block;
-    margin-bottom: 2px;
-}
+
 .nav-tag {
-    font-size: 0.6rem;
-    text-transform: lowercase;
+    font-family: var(--font-main);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--accent-red);
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    margin: 5px 0;
     display: block;
-    margin-bottom: 4px;
 }
 
 .nav-name {
+    font-family: var(--font-main);
     font-weight: 700;
-    font-size: 0.85rem; /* Уменьшили размер описания */
-    line-height: 1.2;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-transform: uppercase;
 }
 
 .full-width {
-    grid-column: span 2;
-    margin-top: 10px;
+    grid-column: auto; /* Убираем растягивание на всю ширину */
 }
 
 /* --- ЛЕВАЯ ЧАСТЬ: ФОТО --- */
@@ -686,43 +682,42 @@ body {
         </div>
 
         <div class="nav-grid">
-            
-            <div class="user-profile">
-    <h1 class="user-name">дарья мамаева</h1>
-    <p class="user-role">PR-менеджер, Специалист по связям с общественностью</p>
-</div>
-            <a href="#about" class="nav-item">
-                <span class="nav-title">01. обо мне</span>
-                <span class="nav-category">[личное]</span>
-                <div class="nav-desc">Кто я и мой подход к работе</div>
-            </a>
-
-            <a href="#education" class="nav-item">
-                <span class="nav-title">02. обучение</span>
-                <span class="nav-category">[академическое]</span>
-                <div class="nav-desc">Университеты и курсы</div>
-            </a>
-
-            <a href="#career" class="nav-item">
-                <span class="nav-title">03. путь</span>
-                <span class="nav-category">[профессиональный]</span>
-                <div class="nav-desc">Опыт и ключевые этапы</div>
-            </a>
-
-            <a href="#portfolio" class="nav-item">
-                <span class="nav-title">04. портфолио</span>
-                <span class="nav-category">[работы]</span>
-                <div class="nav-desc">Проекты и кейсы</div>
-            </a>
-
-            <a href="#contacts" class="nav-item" style="grid-column: span 2;">
-                <span class="nav-title">05. контакты</span>
-                <span class="nav-category">[связь]</span>
-                <div class="nav-desc">Telegram, Email, LinkedIn</div>
-            </a>
-
-        </div>
+   <nav class="hero-nav">
+    <div class="user-profile">
+        <h1 class="user-name">дарья мамаева</h1>
+        <p class="user-role">PR-менеджер, Специалист по связям с общественностью</p>
     </div>
+
+    <a href="#about" class="nav-item">
+        <span class="nav-number">01.</span>
+        <span class="nav-tag">[ личное ]</span>
+        <div class="nav-name">обо мне</div>
+    </a>
+
+    <a href="#education" class="nav-item">
+        <span class="nav-number">02.</span>
+        <span class="nav-tag">[ обучение ]</span>
+        <div class="nav-name">образование</div>
+    </a>
+
+    <a href="#contacts" class="nav-item">
+        <span class="nav-number">03.</span>
+        <span class="nav-tag">[ связь ]</span>
+        <div class="nav-name">контакты</div>
+    </a>
+
+    <a href="#career" class="nav-item">
+        <span class="nav-number">04.</span>
+        <span class="nav-tag">[ опыт ]</span>
+        <div class="nav-name">проф. путь</div>
+    </a>
+
+    <a href="#portfolio" class="nav-item">
+        <span class="nav-number">05.</span>
+        <span class="nav-tag">[ кейсы ]</span>
+        <div class="nav-name">портфолио</div>
+    </a>
+</nav>
 </section>
 
     <div class="marquee">
