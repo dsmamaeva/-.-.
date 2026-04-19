@@ -155,20 +155,21 @@ body {
 
 .hero-container {
     max-width: 1300px;
-    margin: 0 auto 60px auto; /* Убрали отступ сверху страницы, если нужно прижать к самому верху браузера */
+    margin: 0 auto 60px auto;
     background-color: var(--bg-cream);
     border-radius: 50px;
-    overflow: hidden; /* Критично: обрезает фото по закругленным краям */
+    overflow: hidden; /* Это скруглит углы самой фотографии */
     display: flex;
     min-height: 85vh;
-    box-shadow: 0 15px 45px var(--card-shadow);
+    border: none; /* Убираем рамку, если она мешает */
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1.3fr; /* Чуть увеличили правую часть для меню */
+    grid-template-columns: 1fr 1.3fr; /* Лево: фото, Право: меню */
     width: 100%;
-    /* УБРАЛИ padding здесь, чтобы фото прилипло к краям */
+    padding: 0 !important; /* УБИРАЕМ ВСЕ ОТСТУПЫ ЗДЕСЬ */
+    gap: 0; /* Убираем зазор между фото и правой частью */
 }
 
 /* --- ПРАВАЯ ЧАСТЬ: МЕНЮ --- */
@@ -251,15 +252,16 @@ body {
 .hero-photo {
     margin: 0;
     padding: 0;
-    line-height: 0; /* Убирает микро-отступ снизу картинки */
-    display: flex;
+    display: flex; /* Убирает лишние пиксели снизу */
+    width: 100%;
+    height: 100%;
 }
 
 .hero-photo img {
-    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Растягивает фото на всю область */
+    object-fit: cover; /* Фото заполнит блок, не оставляя полей */
+    display: block;
 }
 
 /* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
