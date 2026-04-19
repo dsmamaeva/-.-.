@@ -625,6 +625,8 @@
             grid-template-columns: 1fr;
         }
     }
+
+        
     </style>
 
 
@@ -3267,6 +3269,55 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+    /* Контейнер достижений РБК */
+.rbk-results-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid var(--accent-red);
+}
+
+.rbk-result-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.rbk-result-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--accent-red);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.rbk-result-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.rbk-result-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .rbk-results-container {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 <script>
@@ -5080,6 +5131,26 @@ function showDesignCase(caseId) {
                 <div class="exp-item-node">
                     <p>Подготовка экспертных материалов и рерайт сложных новостных сводок на основе анализа первичной документации и данных мониторинга инфополя.</p>
                 </div>
+
+                <div class="rbk-results-container">
+    <div class="rbk-result-card">
+        <div class="rbk-result-label">Контент & KPI</div>
+        <div class="rbk-result-number">>70K</div>
+        <p class="rbk-result-text">уникальных просмотров материалов форума. План дистрибуции выполнен на 100%.</p>
+    </div>
+
+    <div class="rbk-result-card">
+        <div class="rbk-result-label">Networking</div>
+        <div class="rbk-result-number">100+</div>
+        <p class="rbk-result-text">профильных компаний региона привлечены в экосистему РБК для дальнейшей интеграции.</p>
+    </div>
+
+    <div class="rbk-result-card">
+        <div class="rbk-result-label">Scalability</div>
+        <div class="rbk-result-number">Roadmap</div>
+        <p class="rbk-result-text">Разработана стратегия масштабирования проекта на другие регионы присутствия холдинга.</p>
+    </div>
+</div>
             </div>
 
             <svg class="exp-lines-svg mirrored-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
