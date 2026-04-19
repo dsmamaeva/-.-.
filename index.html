@@ -209,36 +209,86 @@ body {
     font-weight: normal;
     text-transform: none;
     color: var(--text-dark);
+    line-height: 1.1;
+    margin-bottom: 25px; /* Увеличили отступ здесь */
+    display: block;
 }
 
 .user-role {
-    font-size: 0.75rem;
-    color: #666;
+    font-family: var(--font-main);
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
+    letter-spacing: 2px;
+    color: #666;
+    position: relative;
+    padding-top: 5px;
 }
 
 /* --- КНОПКИ НАВИГАЦИИ --- */
 .nav-item {
     text-decoration: none;
     color: var(--text-dark);
-    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 15px; /* Добавили внутренний отступ для области клика */
+    border-radius: 15px;
+    background: transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Пружинистый эффект */
+    position: relative;
+    overflow: hidden;
 }
 
 .nav-number {
     font-family: var(--font-numbers);
     font-style: italic;
-    font-size: 1.8rem; /* Чуть крупнее для акцента */
+    font-size: 2rem; /* Сделали чуть ярче/крупнее */
     color: var(--text-dark);
+    transition: all 0.3s ease;
     display: block;
 }
 
-.nav-item:hover { 
-    color: var(--accent-red); /* Переход в ваш красный при наведении */
-    transform: translateX(4px);
+.nav-name {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-top: 8px;
+    transition: all 0.3s ease;
 }
 
+.nav-item:hover {
+    background: rgba(139, 26, 26, 0.03); /* Очень легкий красный фон */
+    transform: translateY(-10px) scale(1.02); /* Кнопка "подпрыгивает" */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+        .nav-item:hover .nav-number {
+    color: var(--accent-red);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+        .nav-item:hover .nav-name {
+    letter-spacing: 1px; /* Текст немного "раздвигается" */
+    color: var(--accent-red);
+    transition: all 0.3s ease;
+}
+
+        .nav-item::after {
+    content: '●';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent-red);
+    font-size: 10px;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.nav-item:hover::after {
+    bottom: 5px; /* Точка выплывает снизу */
+    opacity: 1;
+}
 
 .nav-tag {
     font-family: var(--font-main);
@@ -250,13 +300,7 @@ body {
     display: block;
 }
 
-.nav-name {
-    font-family: var(--font-main);
-    font-weight: 700;
-    font-size: 0.75rem;
-    line-height: 1.4;
-    text-transform: uppercase;
-}
+
 
 .full-width {
     grid-column: auto; /* Убираем растягивание на всю ширину */
@@ -694,7 +738,7 @@ body {
     <div class="hero-content">
         
         <div class="hero-photo">
-            <img src="IMG_0742.jpg" alt="Дарья Мамаева">
+            <img src="глав.png" alt="Дарья Мамаева">
         </div>
 
         <nav class="hero-nav">
