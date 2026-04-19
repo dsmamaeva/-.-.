@@ -1184,20 +1184,20 @@
 
 
 
+<div onclick="toggleEventFolder()" style="cursor: pointer; user-select: none;">
 
-<div onclick="toggleEventFolder()" style="cursor: pointer; user-select: none;"></div>
+</div>
 
-<div id="event-folder" style="display: none; padding-left: 20px; border-left: 1px dashed #ccc;">
+<div id="event-folder">
     
-    <div class="case-study" style="margin-bottom: 30px;">
+    <div class="case-study">
         <h4>🍷 КЕЙС: Летние винные сезоны (Simple Wine)</h4>
         <p><strong>Концепция:</strong> Экосистема мероприятий «Искусство, вино и Петербург», превращающая бар в культурный хаб.</p>
         <ul>
             <li><strong>Архитектура:</strong> 6 тематических блоков (Кино, Литература, Живопись) + финальный фестиваль. Интеграция с «Невидимым театром» и «Подписными изданиями».</li>
             <li><strong>Digital-механика:</strong> Геймификация лояльности — обязательная конверсия посетителей в пользователей приложения Simple (баллы за квизы, посещения и чеки).</li>
             <li><strong>Метрики:</strong> 
-                <ul>
-                    <li>Охват: 200-300 участников на каждое событие (CA: 25-55, доход выше среднего).</li>
+                <ul style="padding-left: 15px; list-style-type: disc;"> <li>Охват: 200-300 участников на каждое событие (CA: 25-55, доход выше среднего).</li>
                     <li>LTV: Рост среднего чека в дни ивентов за счет системы накопления баллов в приложении.</li>
                     <li>Community: Сформирована база лояльных клиентов через спецпроект «Студенческие среды».</li>
                 </ul>
@@ -1205,16 +1205,16 @@
         </ul>
     </div>
 
-    <hr style="border: 0.5px solid #eee;">
+    <hr class="event-divider">
 
-    <div class="case-study" style="margin-top: 20px;">
+    <div class="case-study">
         <h4>📈 КЕЙС: RBK Business Day (Kazan)</h4>
         <p><strong>Концепция:</strong> Проектирование коммуникационной платформы для G2B и B2B диалога на федеральном уровне.</p>
         <ul>
             <li><strong>Архитектура:</strong> Разработка структуры деловой программы: от панельных дискуссий с топ-менеджментом до закрытых нетворкинг-сессий.</li>
             <li><strong>Управление:</strong> Координация кросс-функциональной команды, спикер-менеджмент (власть, эксперты, бизнес) и контроль технического продакшена.</li>
             <li><strong>Метрики:</strong> 
-                <ul>
+                <ul style="padding-left: 15px; list-style-type: disc;">
                     <li>Масштаб: 400+ делегатов (C-level руководители и госсектор).</li>
                     <li>Media Reach: Обеспечение охвата > 1,5 млн контактов через каналы РБК и партнерские СМИ.</li>
                     <li>KPI: 100% выполнение обязательств перед спонсорами по представленности и интеграциям.</li>
@@ -3842,6 +3842,49 @@
   position: absolute;
   left: -1.25rem;             /* Размещаем маркер в области отступа */
   width: 1rem;
+}
+
+
+
+    /* Контейнер папки */
+#event-folder {
+    display: none;
+    padding-left: 20px;
+    border-left: 1px dashed #ccc;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* Стилизация отдельных кейсов */
+.case-study {
+    margin-bottom: 30px;
+}
+
+.case-study h4 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333; /* Можно заменить на акцентный цвет твоего бренда */
+}
+
+.case-study ul {
+    list-style-type: none; /* Убираем стандартные точки для чистоты */
+    padding-left: 0;
+}
+
+.case-study li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.case-study strong {
+    font-weight: 600;
+}
+
+/* Разделитель между кейсами */
+.event-divider {
+    border: 0;
+    border-top: 0.5px solid #eee;
+    margin: 20px 0;
 }
 </style>
 
