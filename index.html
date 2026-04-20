@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дарья Мамаева | Портфолио</title>
+    <title>Дарья Мамаева. | Портфолио</title>
    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         
@@ -4749,6 +4749,57 @@ body {
         flex: 0 0 auto;
         width: 200px;
     }
+}
+
+    /* Контейнер для видео и статы в один ряд */
+.blog-media {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start; /* Важно: чтобы блоки не растягивались по высоте друг друга */
+    width: 100%;
+}
+
+/* Фрейм для видео */
+.reels-frame {
+    flex: 1.5; /* Соотношение сторон видео чуть больше */
+    position: relative;
+    width: 100%;
+    /* Удаляем overflow: hidden, если он обрезает края */
+}
+
+/* Фрейм для статистики */
+.stats-mini-frame {
+    flex: 1;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    line-height: 0; /* Убирает лишние отступы снизу у картинок */
+}
+
+/* Чтобы видео и картинки всегда были видны целиком */
+.reels-frame iframe,
+.stats-mini-frame img {
+    width: 100%;
+    height: auto; /* Позволяет контейнеру расти вниз */
+    aspect-ratio: 9 / 16; /* Принудительно задаем мобильный формат */
+    display: block;
+    object-fit: contain; /* Гарантирует, что контент впишется без обрезки */
+}
+
+/* Если используете контейнер с padding-bottom (старый метод) */
+.rutube-reels-container {
+    position: relative;
+    padding-bottom: 177%; /* Соотношение для 9:16 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.rutube-reels-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 </style>
 
