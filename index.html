@@ -4522,6 +4522,117 @@ body {
         padding: 40px 20px;
     }
 }
+
+    /* Мета-данные фильма */
+.film-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.meta-item span {
+    display: block;
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.meta-item strong {
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    color: var(--text-dark);
+}
+
+/* Полароид */
+.polaroid-frame {
+    background: #fff;
+    padding: 12px 12px 30px 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid-frame:hover {
+    transform: rotate(0deg);
+}
+
+.polaroid-frame img {
+    width: 100%;
+    filter: sepia(20%) contrast(1.1);
+}
+
+.polaroid-caption {
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.65rem;
+    color: #999;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Видеомонитор */
+.film-player-container {
+    margin-top: 50px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.monitor-top-bar, .monitor-bottom-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: #444;
+    font-family: var(--font-main);
+}
+
+.rec-dot {
+    width: 8px;
+    height: 8px;
+    background: #ff4444;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: blink 1.5s infinite;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.ref-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.ref-links a {
+    font-size: 0.75rem;
+    color: var(--accent-red);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.ref-links a:hover {
+    border-bottom-color: var(--accent-red);
+}
+
+@keyframes blink {
+    0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; }
+}
 </style>
 
 <script>
@@ -5808,98 +5919,69 @@ function showDesignCase(caseId) {
 
 
 'short-film': `
-    <div class="film-collage-wrapper">
-        <div class="film-collage-inner">
-            
-            <div class="collage-top-row">
-                <div class="collage-header-text">
-                    <span class="mono-label">Короткометражный фильм</span>
-                    <h2 class="film-main-title">Первак</h2>
-                    <div class="film-meta mono-text">
-                        <p><strong>ПРОЕКТ:</strong> ‘ПЕРВАК’</p>
-                        <p><strong>РОЛЬ:</strong> ШОУРАННЕР - вела проект от задумки до финальных показов</p>
-                        <p><strong>ЖАНР:</strong> ДРАМА / РОМАНТИКА</p>
-                    </div>
-                </div>
-
-                <div class="collage-main-frame">
-                    <div class="polaroid-border">
-                        <img src="Frame 2.png" alt="Обложка">
-                    </div>
-                    <span class="frame-caption mono-text">ОБЛОЖКА</span>
-                </div>
-            </div>
-
-            <div class="collage-notes-row">
-                <div class="note-box production-note">
-                    <span class="note-tag mono-text">О проделанной работе</span>
-                    <p>Я реализовала полный цикл обязанностей шоураннера (и даже чуток больше:)). Задумка, написание сценария, поиск команды, проведение кастинга актеров, поиск оборудование, руководство процессом съемок, пост-продакшен и, наконец, финальная презентация фильма. </p>
-                </div>
-                
-                <div class="note-box script-note">
-                    <span class="note-tag mono-text">О истории</span>
-                    <p>Мной была создана многослойная драматургия. Разработаны детальные психотипы героев и вариативный сценарий с 6+ ключевыми точками выбора, влияющими на финал. Однако на этапе подготовки к съемкам было принято решение пойти лишь по одной ветке. </p>
-
-                </div>
-            </div>
-
-            <div class="collage-cast-section">
-                <p class="section-divider mono-text">О ФИЛЬМЕ</p>
-                <div class="cast-cards-container">
-                    <div class="cast-card">
-                        <h4 class="char-name">Краткое описание</h4>
-                        <p class="char-desc mono-text">Двое одиннадцатиклассников из провинции поступают в Петербург на факультет дизайна (актерское?). сталкиваются лицом к лицу с первыми взрослыми трудностями и впервые принимают взрослые решения. </p>
-                    </div>
-                    <div class="cast-card">
-                       
-                        <h4 class="char-name">Проблематика</h4>
-                        <p class="char-desc mono-text">Проблема взросления; череда взрослых выборов: взять ответственность за свою жизнь.</p>
-                    </div>
-                    <div class="cast-card">
-                      
-                        <h4 class="char-name">Референсы</h4>
-                        <p class="char-desc mono-text">
-                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/f5">1.	F5   </a></p>
-                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/chizhiki">2.	Чижики</a></p>
-                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/eto-ya-3-sezon">3.	Веб-сериал «Это я»: 3 сезон</a></p>
-                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/dva-detstva">4.	Два детства</a></p>
-                    <p class="char-desc mono-text"><a href="https://piligrim.fund/film/arbatstvo">5.	“Арбатство”</a></p>
-                    
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
+<div class="folder-inside">
+    <div class="folder-header">
+        <h3 class="folder-title">Film Production & Showrunning</h3>
     </div>
 
+    <section class="film-case-section">
+        <div class="media-case-container">
+            <div class="media-case-info">
+                <span class="tag">Production Case</span>
+                <h4>Короткометражный фильм «Первак»</h4>
+                
+                <div class="film-meta-grid">
+                    <div class="meta-item"><span>Роль</span><strong>Шоураннер</strong></div>
+                    <div class="meta-item"><span>Жанр</span><strong>Драма / Романтика</strong></div>
+                    <div class="meta-item"><span>Локация</span><strong>Санкт-Петербург</strong></div>
+                </div>
 
-    <div class="film-player-section">
-    <p class="section-divider mono-text"><span>FINAL CUT / WATCH FILM</span></p>
-    
-    <div class="video-monitor-wrapper">
-        <div class="monitor-frame">
-            <div class="rutube-container">
+                <div class="detail-block">
+                    <span class="mono-label" style="font-size: 0.6rem; color: #999; margin-bottom: 5px;">Production Note</span>
+                    <p>Полный цикл: от идеи и многослойной драматургии (6+ точек выбора в сценарии) до кастинга, руководства съемками и пост-продакшена. История о взрослении и первых серьезных выборах в декорациях Петербурга.</p>
+                </div>
+                
+                <div class="film-references">
+                    <span class="mono-label" style="font-size: 0.6rem; color: #999;">Visual References:</span>
+                    <div class="ref-links">
+                        <a href="https://piligrim.fund/film/f5" target="_blank">F5</a>
+                        <a href="https://piligrim.fund/film/chizhiki" target="_blank">Чижики</a>
+                        <a href="https://piligrim.fund/film/eto-ya-3-sezon" target="_blank">Это я</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="film-poster-sidebar">
+                <div class="polaroid-frame">
+                    <img src="Frame 2.png" alt="Первак Обложка">
+                    <span class="polaroid-caption">Production Frame #01</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="film-player-container">
+            <div class="monitor-top-bar">
+                <span class="rec-dot"></span> 
+                <span class="mono-text">REC 00:24:59:12</span>
+                <span class="mono-text" style="margin-left: auto;">PROJECT_PETER_V1.RAW</span>
+            </div>
+            
+            <div class="video-wrapper">
                 <iframe 
                     src="https://rutube.ru/play/embed/dce054c2366c341d29c43160a78addf7" 
                     frameBorder="0" 
-                    allow="clipboard-write; autoplay" 
-                    webkitAllowFullScreen 
-                    mozallowfullscreen 
                     allowFullScreen>
                 </iframe>
             </div>
-        </div>
-        
-        <div class="player-footer monospaced">
-            <div class="footer-left">
-                <span class="dot-rec"></span> REC 00:24:59:12
-            </div>
-            <div class="footer-right">
-                PROJECT_PETER_V1.MP4
+            
+            <div class="monitor-bottom-bar">
+                <div class="audio-levels">
+                    <div class="level-bar"></div><div class="level-bar active"></div><div class="level-bar"></div>
+                </div>
+                <span class="mono-text" style="font-size: 0.6rem;">4K / 24FPS / LOG-C</span>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 `,
 
