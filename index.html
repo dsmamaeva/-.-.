@@ -4801,6 +4801,63 @@ body {
     width: 100%;
     height: 100%;
 }
+
+    /* Общий контейнер для медиа, чтобы ничего не обрезалось */
+.case-media-wrapper {
+    display: flex;
+    gap: 15px;
+    flex: 0 0 500px; /* Фиксируем ширину медиа-блока, чтобы текст не прыгал */
+    align-items: flex-start;
+}
+
+.reels-frame {
+    flex: 1.2;
+    aspect-ratio: 9 / 16;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+}
+
+.reels-frame iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stats-mini-frame {
+    flex: 1;
+    border-radius: 12px;
+    overflow: visible; /* Чтобы картинка могла раскрыться */
+}
+
+.stats-mini-frame img {
+    width: 100%;
+    height: auto; /* Позволяет картинке быть любой длины */
+    display: block;
+    border-radius: 12px;
+}
+
+.blog-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 80px;
+    align-items: flex-start;
+}
+
+.blog-text {
+    flex: 1;
+}
+
+/* Адаптив для мобильных: медиа и текст друг под другом */
+@media (max-width: 900px) {
+    .blog-row {
+        flex-direction: column;
+    }
+    .case-media-wrapper {
+        width: 100%;
+        flex: none;
+    }
+}
 </style>
 
 <script>
@@ -6168,8 +6225,8 @@ function showDesignCase(caseId) {
             </div>
             <div class="blog-hero-info">
                 <span class="tag">Strategy & Growth</span>
-                <h4>Личный блог как полигон для гипотез</h4>
-                <p>Блог для меня — это не просто контент, а площадка для тестирования маркетинговых гипотез. Я «обкатываю» здесь стратегии виральности и форматы удержания, прежде чем внедрять их в крупные проекты.</p>
+                <h4>Контент под мой личный блог</h4>
+                <p>Свой блог я использую как полигон для экспериментов: тестирую гипотезы, "обкатываю" стратегии и постоянно анализирую результаты. Ниже прилагаю несколько кейсов со статистикой и анализом.</p>
                 
                 <div class="lab-stats-mini">
                     <div class="m-stat"><span>Focus</span><strong>Psychology / Lifestyle</strong></div>
@@ -6183,92 +6240,109 @@ function showDesignCase(caseId) {
         <div class="blog-analysis-grid">
             
             <div class="blog-row">
-                <div class="blog-media">
+                <div class="case-media-wrapper">
                     <div class="reels-frame">
                         <iframe src="https://rutube.ru/play/embed/99afafc375cd961b229585fa9a924a95" frameBorder="0" allowFullScreen></iframe>
                     </div>
                     <div class="stats-mini-frame">
-                        <img src="IMG_3838.PNG" alt="Stats 1" class="grayscale-img">
+                        <img src="IMG_3838.PNG" alt="Stats 1">
                     </div>
                 </div>
                 <div class="blog-text">
-                    <span class="mono-label">Case #01 — Распаковка ЗЯ</span>
-                    <p><strong>Факторы роста:</strong> Оперативность (обзор в числе первых) и интрига (вариативное наполнение). <br><strong>Инструмент:</strong> «Хук» в первые 2 секунды и динамичный подсчет выгоды.</p>
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <h4 class="serif">Распаковка ЗЯ</h4>
+                    <p>На хорошие показатели статистики повлияли:</p>
+                    <p>а) оперативность - на тот момент этот бокс только вышел, я сделала обзор в числе первых;</p>
+                    <p>б) интрига - всем попадались разные наполнения на разные суммы.</p>
+                    <p>Кроме того, нельзя снимать "лавров" с "хука" - в первых двух секундах я текстово и визуально показала о чем будет идти речь; и динамичного удобного подсчета суммы наполнения.</p>
                 </div>
             </div>
 
             <div class="blog-row">
-                <div class="blog-media">
+                <div class="case-media-wrapper">
                     <div class="reels-frame">
                         <iframe src="https://rutube.ru/play/embed/700fb6f06b7cdca68d0ab865fcbb81de" frameBorder="0" allowFullScreen></iframe>
                     </div>
                     <div class="stats-mini-frame">
-                        <img src="IMG_3839.PNG" alt="Stats 2" class="grayscale-img">
+                        <img src="IMG_3839.PNG" alt="Stats 2">
                     </div>
                 </div>
                 <div class="blog-text">
-                    <span class="mono-label">Case #02 — Тайминг vs Картинка</span>
-                    <p>Охваты ниже из-за упущенной «оперативности», несмотря на лучший визуал. <strong>Вывод:</strong> В ситуативном маркетинге скорость важнее идеального продакшена.</p>
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <h4 class="serif">Распаковка ЗЯ x2</h4>
+                    <p>Тут охваты меньше, чем на предыдущем рилсе той же тематики при условии более приятной картинки. Почему? Потому что не попала в параметр "оперативность" - на момент публикации на просторах социальных сетей было уже очень много обзоров. Тем не менее, хорошее число просмотров, в 2,5 раза превышающее количество моих подписчиков.</p>
                 </div>
             </div>
 
             <div class="blog-row">
-                <div class="blog-media">
+                <div class="case-media-wrapper">
                     <div class="reels-frame">
                         <iframe src="https://rutube.ru/play/embed/d3428b2ddf839e50b3c9c531e987be63" frameBorder="0" allowFullScreen></iframe>
                     </div>
                     <div class="stats-mini-frame">
-                        <img src="IMG_3840.PNG" alt="Stats 3" class="grayscale-img">
+                        <img src="IMG_3840.PNG" alt="Stats 3">
                     </div>
                 </div>
                 <div class="blog-text">
-                    <span class="mono-label">Case #03 — Полезность и ASMR</span>
-                    <p>Ставка на медитативность и дефицитную пользу (инструкция опоры). Гипотеза: корреляция «нетрендового» звука с глубиной просмотра подтвердилась за счет мэтча атмосферы.</p>
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <h4 class="serif">Рилс про хобби</h4>
+                    <p>В этом кейсе ставка сделана на:</p>
+                    <p>а) медитативность процесса;</p>
+                    <p>б) полезность (этим же вызвано количество сохранений) - на видео я показываю процесс создания опоры для растения. Если углубляться в специфику, такой вариант опоры - лучший вариант для растений подобного типа, но в интернете не так много видео с процессом изготовления таких конструкций.</p>
+                    <p>Кроме того, в этой работе я тестировала гипотезу с корреляцией "трендового" звука и количества просмотров. Я взяла на фон песню, которая совсем не трендовая, а просто нравится мне и подходит под ту самую "медитативность".</p>
                 </div>
             </div>
 
             <div class="blog-row">
-                <div class="blog-media">
+                <div class="case-media-wrapper">
                     <div class="reels-frame">
                         <iframe src="https://rutube.ru/play/embed/ac8495a7d0313d007c60f6729fcf6570" frameBorder="0" allowFullScreen></iframe>
                     </div>
                     <div class="stats-mini-frame">
-                        <img src="IMG_3841.PNG" alt="Stats 4" class="grayscale-img">
+                        <img src="IMG_3841.PNG" alt="Stats 4">
                     </div>
                 </div>
                 <div class="blog-text">
-                    <span class="mono-label">Case #04 — Искренность «на коленке»</span>
-                    <p>Формат «кружка» для подруг. Сработал триггер актуальности (новые схемы мошенничества) и живая эмоция без фильтров.</p>
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <h4 class="serif">Разговорное видео</h4>
+                    <p>Этот рилс смонтирован "на коленке" - записывала кружок подругам, решила сделать из него рилс. Сыграла на:</p>
+                    <p>а) Живость эмоций - это не постановочное видео, а искренний рассказ;</p>
+                    <p>б) Актуальность - мошенники изобретают новые и новые схемы, конкретно про похожую схему видела всего один рилс;</p>
+                    <p>в) Интрига - хорошее удержание благодаря манере повествования.</p>
                 </div>
             </div>
 
             <div class="blog-row">
-                <div class="blog-media">
+                <div class="case-media-wrapper">
                     <div class="reels-frame">
                         <iframe src="https://rutube.ru/play/embed/6b1ba6b55cda0e4f0d80cd76e2fba58b" frameBorder="0" allowFullScreen></iframe>
                     </div>
                     <div class="stats-mini-frame">
-                        <img src="IMG_3842.PNG" alt="Stats 5" class="grayscale-img">
+                        <img src="IMG_3842.PNG" alt="Stats 5">
                     </div>
                 </div>
                 <div class="blog-text">
-                    <span class="mono-label">Case #05 — Вечные триггеры</span>
-                    <p>Использование классического журналистского триггера. Монтаж с провокационным «хуком» обеспечил высокий репост в личные сообщения.</p>
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <h4 class="serif">Видео со спектакля</h4>
+                    <p>В журналистике есть такое понятие, как "вечные темы". К их числу относятся дети и безопасность; смерть и катастрофы; и секс. Вот именно на последнем триггере я и сыграла в этом кейсе.</p>
+                    <p>У меня было несколько вариантов, как построить монтаж, но в качестве "хука" я решила вывести именно сцену из публичного дома. Сработало хорошо: помимо того, что я удержала внимание на рилсе, получила хороший отклик по количеству репостов в личные сообщения и сохранениям.</p>
                 </div>
             </div>
 
             <div class="blog-row">
-                <div class="blog-media">
+                <div class="case-media-wrapper">
                     <div class="reels-frame">
                         <iframe src="https://rutube.ru/play/embed/67232c7d2aa65b1b7d232574a9198683" frameBorder="0" allowFullScreen></iframe>
                     </div>
                     <div class="stats-mini-frame">
-                        <img src="IMG_3843.PNG" alt="Stats 6" class="grayscale-img">
+                        <img src="IMG_3843.PNG" alt="Stats 6">
                     </div>
                 </div>
                 <div class="blog-text">
-                    <span class="mono-label">Case #06 — Трансформация формата</span>
-                    <p>Отсутствие интриги компенсировано информативностью (пирамида ароматов). Видео работает как «полезная карточка» для сохранения.</p>
+                    <span class="grid-tag mono-text">Analysis</span>
+                    <h4 class="serif">Распаковка ЗЯ х3</h4>
+                    <p>Видео того же плана, что и первый кейс, но по охватам - скромнее. Почему? Потому что тут отсутствует элемент интриги - наполнение боксов заявлено на сайте Золотого Яблока.</p>
+                    <p>Зная про отсутствие этого элемента, немного поменяла монтаж относительно двух первых распаковок в части информативности наложений (вывела пирамиду ароматов), чтобы появился элемент полезности.</p>
                 </div>
             </div>
 
