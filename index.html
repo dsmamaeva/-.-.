@@ -1408,8 +1408,8 @@ body {
 <div class="media-case-container alternate">
     <div class="media-case-info">
         <div class="case-header">
-            <span class="tag"><p></p>Мероприятие на стыке бизнеса и медиа </p></span>
-            <span class="location-tag"><p>Казань • СПб • Регионы</p></span>
+<span class="tag">Мероприятие на стыке бизнеса и медиа</span>
+<span class="location-tag">Казань • СПб • Регионы</span>
         </div>
         
 
@@ -4157,6 +4157,159 @@ body {
     color: #999;
     margin: 0;
     font-style: italic;
+}
+
+
+    /* Контейнер "папки" */
+.folder-inside {
+    padding: 60px 40px;
+    background: #fdfaf7; /* Тот же фон, что у раздела "Опыт" */
+}
+
+.folder-title {
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-red);
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* Сетка кейса */
+.media-case-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+/* Теги и заголовки */
+.tag, .location-tag {
+    display: inline-block;
+    font-family: var(--font-main);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    margin-right: 8px;
+}
+
+.media-case-info h4 {
+    font-family: var(--font-main);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.media-case-info p, .case-description {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+/* Списки с буллитами в стиле РБК */
+.stats-list, .case-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.stats-list li, .case-highlights li {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.stats-list li::before, .case-highlights li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+}
+
+/* Визуальная часть (скриншоты) */
+.media-case-visuals {
+    display: flex;
+    gap: 20px;
+}
+
+.graph-wrapper {
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    text-align: center;
+    flex: 1;
+}
+
+.tg-graph {
+    width: 100%;
+    border-radius: 8px;
+    filter: grayscale(100%); /* Делаем скриншоты ч/б для стиля */
+    transition: filter 0.4s ease;
+}
+
+.tg-graph:hover {
+    filter: grayscale(0%); /* Цвет при наведении */
+}
+
+.graph-caption {
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Мини-карточки со статистикой (РБК блок) */
+.media-case-mini-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.mini-stat-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 3px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.mini-stat-card.highlight {
+    border-left-color: var(--accent-red);
+}
+
+.stat-num {
+    display: block;
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.stat-label {
+    font-family: var(--font-main);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+/* Разделитель */
+.separator {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 60px 0;
 }
 </style>
 
