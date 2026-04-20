@@ -1255,9 +1255,9 @@ body {
 
 
 
-            <div class="experience-summary">
-    <span class="summary-total">Общий стаж: ~4 года и 1 месяц</span>
-    <p class="summary-note">* расчет произведен с учетом исключения пересекающихся периодов (чистое календарное время)</p>
+<div class="experience-summary">
+    <span class="summary-total">Общий стаж: <span style="color: var(--accent-red);">~4 года и 1 месяц</span></span>
+    <p class="summary-note">* расчет произведен с учетом исключения пересекающихся периодов</p>
 </div>
 
                 </section>
@@ -3289,22 +3289,7 @@ body {
 
 
 
-.summary-total {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--text-dark);
-    margin-bottom: 5px;
-}
 
-.summary-note {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888;
-    line-height: 1.4;
-}
 
 
 
@@ -4136,6 +4121,42 @@ body {
     .timeline-section .mono-label {
     margin-top: 0 !important;
     margin-bottom: 20px;
+}
+
+.experience-summary {
+    margin-top: 50px;
+    padding: 30px;
+    background: #fff; /* Белый фон, как у таймлайна */
+    border-radius: 20px;
+    border-left: 4px solid var(--accent-red); /* Акцентная линия слева */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    display: inline-block; /* Чтобы блок не растягивался на всю ширину, если не нужно */
+    min-width: 300px;
+}
+
+.summary-total {
+    display: block;
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+/* Выделяем цифру стажа вашим красным */
+.summary-total::after {
+    content: ''; /* Здесь можно добавить декоративный элемент, если нужно */
+}
+
+.summary-note {
+    font-family: var(--body-font);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #999;
+    margin: 0;
+    font-style: italic;
 }
 </style>
 
