@@ -4397,6 +4397,80 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+    /* Таблица показателей в сайдбаре */
+.stats-table {
+    margin-top: 15px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+}
+
+.stat-row span { color: #888; text-transform: uppercase; }
+.stat-row strong { color: var(--text-dark); }
+
+/* Сетка видео-дуэтов */
+.tiktok-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.media-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.video-card, .stats-card-mini {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.video-card iframe {
+    width: 100%;
+    aspect-ratio: 9/16;
+    border-radius: 10px;
+    background: #000;
+}
+
+.grayscale-img {
+    width: 100%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.grayscale-img:hover { filter: grayscale(0%); }
+
+.media-tag {
+    display: block;
+    font-family: var(--font-main);
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Кнопка "Смотреть всё" (опционально) */
+.full-grid-link {
+    text-align: center;
+    margin-top: 50px;
+}
 </style>
 
 <script>
@@ -5603,235 +5677,181 @@ function showDesignCase(caseId) {
             </div> </section>
     </div>
 `,
-    'tiktok-meet': `
-    <div class="case-hero-section">
-            <div class="visual-box">
-                <div class="ratio-9-16">
-                <img src="meet1.jpeg" alt="Обложка 1">
-                </div>
-            </div>
-            <div class="visual-box">
-                <div class="ratio-9-16">
-                <img src="meet2.jpeg" alt="Обложка 2">
-                </div>
-            </div>   
-            <div class="visual-box results-visual-box">
-                <div class="ratio-9-16 results-container">
-                    <div class="results-content-overlay">
-                    <h4 class="stats-title">Результаты проекта</h4>
-                        <div class="stats-list">
-                            <div class="stat-entry">
-                            <span class="label">Период</span>
-                            <span class="value">июнь → октябрь</span>
-                            </div>
-                            <div class="stat-entry">
-                            <span class="label">Подписчики</span>
-                            <span class="value">14 → 850</span>
-                            </div>
-                            <div class="stat-entry">
-                            <span class="label">Просмотры</span>
-                            <span class="value">1 700 000</span>
-                            </div>
-                            <div class="stat-entry">
-                            <span class="label">Лайки</span>
-                            <span class="value">45 000</span>
-                            </div>
-                            <div class="stat-entry">
-                            <span class="label">Репосты</span>
-                            <span class="value">4 570</span>
-                            </div>
-                        </div>
+'tiktok-meet': `
+<div class="folder-inside">
+    <div class="folder-header">
+        <h3 class="folder-title">SMM & Viral Marketing</h3>
+    </div>
+
+    <section class="tiktok-case-section">
+        <div class="media-case-container">
+            <div class="media-case-info">
+                <span class="tag">TikTok Strategy</span>
+                <h4>Meet Market: Масштабирование через контент</h4>
+                <p>Кейс по созданию SMM-стратегии для интернет-магазина. От поиска визуального языка до кратного роста охватов за счет анализа данных и работы с трендами.</p>
+                
+                <div class="strategy-details">
+                    <div class="detail-block">
+                        <span class="mono-label" style="font-size: 0.6rem; color: #999; margin-bottom: 5px;">Методология</span>
+                        <p>Эксперименты с форматами: от юмора к «полезному» контенту. Выявление паттернов виральности через обучающие ролики (техники шнуровок) и ситуативный маркетинг.</p>
                     </div>
                 </div>
             </div>
-            <div class="hero-strategy-card full-width-strategy">
-            <h3 class="strategy-title">Стратегия и выводы</h3>
-                <div class="strategy-content">
-                <p>Сначала мы экспериментировали с контентом и формировали гипотезы: пробовали снимать тренды и юмор (видео 1, 2). В итоге по анализу охватов мы выявили, что наиболее эффективно работает «полезный» контент.</p>
-                <p>Дополнительно в продвижении использовался ситуативный маркетинг (видео 6), который позволил привлечь новую холодную аудиторию.</p>
-                <p>Наибольший отклик получили обучающие ролики с разными техниками шнуровок: такие видео активно сохраняли и репостили. Кульминацией этой рубрики стало видео 11, показавшее лучшие результаты по вовлеченности.</p>
+
+            <div class="results-sidebar">
+                <div class="mini-stat-card highlight">
+                    <span class="stat-label">Итоговые показатели</span>
+                    <div class="stats-table">
+                        <div class="stat-row"><span>Просмотры</span><strong>1.7M+</strong></div>
+                        <div class="stat-row"><span>Подписчики</span><strong>14 → 850</strong></div>
+                        <div class="stat-row"><span>Лайки</span><strong>45K</strong></div>
+                        <div class="stat-row"><span>Репосты</span><strong>4.5K</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="separator">
+
+        <div class="tiktok-visual-grid">
+            
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/fed51542daf8d6fd2b3c358ed1887d1b/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 1</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3504.PNG" alt="Stats 1" class="grayscale-img">
+                    <span class="media-tag">Аналитика 1</span>
                 </div>
             </div>
 
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/73d801a8d7013639e992befd553d810c/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 2</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3506.PNG" alt="Stats 2" class="grayscale-img">
+                    <span class="media-tag">Аналитика 2</span>
+                </div>
+            </div>
 
-    
-    </div>
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/5471921ca1f8e55ee7d385eab4cc0715/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 3</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3508.PNG" alt="Stats 3" class="grayscale-img">
+                    <span class="media-tag">Аналитика 3</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/2b35176ea7c4e19dfc3e3fb6aa104818/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 4</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3510.PNG" alt="Stats 4" class="grayscale-img">
+                    <span class="media-tag">Аналитика 4</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/c60ae15760954f52a150439915e611a8/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 5</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3512.PNG" alt="Stats 5" class="grayscale-img">
+                    <span class="media-tag">Аналитика 5</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/93183a0c87f4c4210a6c38dbb65e53b9/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 6</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3514.PNG" alt="Stats 6" class="grayscale-img">
+                    <span class="media-tag">Аналитика 6</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/1d8b9c40b79ad72281cdfa56f2c9fe4d/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 7</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3516.PNG" alt="Stats 7" class="grayscale-img">
+                    <span class="media-tag">Аналитика 7</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/45ce4f063dffb0def8bfc4f972f97cc1/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 8</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3518.PNG" alt="Stats 8" class="grayscale-img">
+                    <span class="media-tag">Аналитика 8</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/48522d68e2c30097b6546d5b3ac02ca6/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 9</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3520.PNG" alt="Stats 9" class="grayscale-img">
+                    <span class="media-tag">Аналитика 9</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/35c41f7780dc3ad882000b8931325755/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 10</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3522.PNG" alt="Stats 10" class="grayscale-img">
+                    <span class="media-tag">Аналитика 10</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="https://rutube.ru/play/embed/50c4c229ed35b48d113f843d0deeba86/?p=1" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 11</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_3524.PNG" alt="Stats 11" class="grayscale-img">
+                    <span class="media-tag">Аналитика 11</span>
+                </div>
+            </div>
+
+            <div class="media-duo">
+                <div class="video-card">
+                    <iframe src="ССЫЛКА_НА_ВИДЕО_12" frameBorder="0" allowFullScreen></iframe>
+                    <span class="media-tag">Видео 12</span>
+                </div>
+                <div class="stats-card-mini">
+                    <img src="IMG_STATS_12.PNG" alt="Stats 12" class="grayscale-img">
+                    <span class="media-tag">Аналитика 12</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </div>
+`,
 
-
-
-
-
-
-        
-        <div class="tiktok-grid-quad">
-    <div class="tiktok-row">
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/fed51542daf8d6fd2b3c358ed1887d1b/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 1</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3504.PNG" alt="Stats 1">
-                <div class="media-label stats-label">Аналитика 1</div>
-            </div>
-        </div>
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/73d801a8d7013639e992befd553d810c/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 2</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3506.PNG" alt="Stats 2">
-                <div class="media-label stats-label">Аналитика 2</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tiktok-row" style="margin-top: 20px;">
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/5471921ca1f8e55ee7d385eab4cc0715/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 3</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3508.PNG" alt="Stats 3">
-                <div class="media-label stats-label">Аналитика 3</div>
-            </div>
-        </div>
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/2b35176ea7c4e19dfc3e3fb6aa104818/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 4</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3510.PNG" alt="Stats 4">
-                <div class="media-label stats-label">Аналитика 4</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tiktok-row" style="margin-top: 20px;">
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/c60ae15760954f52a150439915e611a8/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 5</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3512.PNG" alt="Stats 5">
-                <div class="media-label stats-label">Аналитика 5</div>
-            </div>
-        </div>
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/93183a0c87f4c4210a6c38dbb65e53b9/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 6</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3514.PNG" alt="Stats 6">
-                <div class="media-label stats-label">Аналитика 6</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tiktok-row" style="margin-top: 20px;">
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/1d8b9c40b79ad72281cdfa56f2c9fe4d/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 7</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3516.PNG" alt="Stats 7">
-                <div class="media-label stats-label">Аналитика 7</div>
-            </div>
-        </div>
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/45ce4f063dffb0def8bfc4f972f97cc1/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 8</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3518.PNG" alt="Stats 8">
-                <div class="media-label stats-label">Аналитика 8</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tiktok-row" style="margin-top: 20px;">
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/48522d68e2c30097b6546d5b3ac02ca6/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 9</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3520.PNG" alt="Stats 9">
-                <div class="media-label stats-label">Аналитика 9</div>
-            </div>
-        </div>
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/35c41f7780dc3ad882000b8931325755/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 10</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3522.PNG" alt="Stats 10">
-                <div class="media-label stats-label">Аналитика 10</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tiktok-row" style="margin-top: 20px;">
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="https://rutube.ru/play/embed/50c4c229ed35b48d113f843d0deeba86/?p=1" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 11</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_3524.PNG" alt="Stats 11">
-                <div class="media-label stats-label">Аналитика 11</div>
-            </div>
-        </div>
-        <div class="media-box video-box">
-            <div class="ratio-9-16">
-                <iframe src="ССЫЛКА_НА_ВИДЕО_12" frameBorder="0" allowFullScreen class="rutube-player"></iframe>
-                <div class="media-label">Видео 12</div>
-            </div>
-        </div>
-        <div class="media-box stats-box">
-            <div class="ratio-9-16">
-                <img src="IMG_STATS_12.PNG" alt="Stats 12">
-                <div class="media-label stats-label">Аналитика 12</div>
-            </div>
-        </div>
-    </div>
-
-  
-</div>
-       
-
-        `,
 
 'short-film': `
     <div class="film-collage-wrapper">
